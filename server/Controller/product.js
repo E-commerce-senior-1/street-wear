@@ -2,6 +2,7 @@ const db = require("../DataBase/index");
 const { Op } = require("sequelize");
 
 
+
 const filterPrice = (minPrice, maxPrice, callback) => {
   db.products
     .findAll({

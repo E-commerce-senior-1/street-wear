@@ -2,6 +2,7 @@ const { makearticl, getarticl, deletearticl } = require("../DataBase/index");
 const db = require("../DataBase/index");
 
 
+
 module.exports = {
   makearticl: async (req, res) => {
     try {
