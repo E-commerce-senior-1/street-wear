@@ -3,7 +3,7 @@
 @tailwind utilities;
 
 
- 
+/*  
 .SignIn-container {
     overflow: hidden;
 }
@@ -11,7 +11,7 @@
 .SignIn-container,
 .SignIn-container * {
     box-sizing: border-box;
-}
+} */
 
 
 

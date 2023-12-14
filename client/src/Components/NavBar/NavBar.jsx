@@ -7,6 +7,7 @@ import Cart from "../cart/Cart"
 const NavBar = () => {
   return (
     <header className="navbar w-full">
+      
       <div className="container flex items-center flex-col md:flex-row">
 
       <div className="flex items-center mt-4 md:mt-0 mb-4 md:mb-0 md:ml-4 py-8">

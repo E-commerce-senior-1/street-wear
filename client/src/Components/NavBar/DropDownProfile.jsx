@@ -63,7 +63,7 @@ const DropDownProfile = ({ isLoggedIn }) => {
                 <Menu.Item>
                   {({ active }) => (
                     <Link
-                      to="/login"
+                      to="/SignIn"
                       className={classNames(
                         active ? 'bg-[#ffffff1a] text-white' : 'text-white',
                         'block px-4 py-2 text-sm'
@@ -76,7 +76,7 @@ const DropDownProfile = ({ isLoggedIn }) => {
                 <Menu.Item>
                   {({ active }) => (
                     <Link
-                      to="/signup"
+                      to="/SignUp"
                       className={classNames(
                         active ? 'bg-[#ffffff1a] text-white' : 'text-white',
                         'block px-4 py-2 text-sm'
