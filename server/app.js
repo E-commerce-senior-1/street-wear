@@ -2,17 +2,14 @@ const express = require("express");
 const app = express();
 const port = 3000;
 const cors = require("cors")
-const db = require("./DataBase/index")
+const db = require('./DataBase/index.js')
+
 // db.sequelize.sync({alter : true})
 app.use(cors())
 app.use(express.json())
 
+
 // for Ahmed
-
-
-
-
-
 
 
 
@@ -35,23 +32,13 @@ app.use(express.json())
 
 
 
-
-
-
-
-
-
-
-
-
 // 
 // for Ameur
 
-
-
-
-
-
+const Controllercart= require("./route/cart.js");
+const ControllerfavList= require("./route/favList.js");
+app.use("/api/cart",Controllercart)
+app.use("/api/favlist",ControllerfavList)
 
 
 
