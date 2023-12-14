@@ -20,6 +20,10 @@ module.exports = (sequelize, DataTypes) => {
             type: DataTypes.STRING,
             allowNull: false,
           },
+          liked:{
+            type: DataTypes.BOOLEAN,
+            defaultValue : false
+          },
           isNew: {
             type: DataTypes.BOOLEAN,
             defaultValue: true,
