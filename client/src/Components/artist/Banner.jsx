@@ -18,7 +18,7 @@ const Banner = () => {
       <br />
       <br />
       <br />
-      <div className='flex w-[164px] h-[45px] items-center justify-center gap-[10px] p-[10px] absolute top-[460px] right-[340px] bg-[#6c5dd3] rounded-[150px] cursor-pointer'>
+      <div className='flex w-[164px] h-[45px] items-center justify-center gap-[10px] p-[10px] absolute top-[500px] right-[340px] bg-[#6c5dd3] rounded-[150px] cursor-pointer'>
         <MdModeEdit/>
         <div onClick={()=> setOpenPopup(true)} className='relative w-fit [font-family : "SF_Pro_Display-Semibold" , Helvetica] font-normal text-white text-[16px] tracking-[0] leading-[normal] whitespace-nowrap'>
           Edit Profile
