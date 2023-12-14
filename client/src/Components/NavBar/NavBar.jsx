@@ -3,6 +3,7 @@ import { Link } from "react-router-dom";
 import { FaSearch, FaUser } from "react-icons/fa";
 import ExploreDropDown from "./ExploreDropDown";
 import DropDownProfile from "./DropDownProfile";
+import Cart from "../cart/Cart"
 const NavBar = () => {
   return (
     <header className="navbar w-full">
@@ -63,6 +64,9 @@ const NavBar = () => {
           More
         </Link>
       </div>
+    <div>
+      <Cart/>
+    </div>
       <div className="flex items-center mt-4 md:mt-0 md:ml-4 md:mr-4">
         <DropDownProfile   />
       </div>
