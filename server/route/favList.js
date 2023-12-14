@@ -4,7 +4,7 @@ const { addfavelist,deletefavlist} = require("../Controller/favList.js");
 
 
 router.post("/post", addfavelist)
-router.delete("/delete/:id", deletefavlist)
+router.delete("/delete/:id/:idPro", deletefavlist)
 
 
 module.exports = router

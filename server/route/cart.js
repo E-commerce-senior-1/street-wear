@@ -4,7 +4,7 @@ const { makearticl, getarticl, deletearticl } = require("../Controller/cart");
 
 router.get("/get", getarticl);    
 router.post("/post", makearticl); 
-router.delete("/delete/:id", deletearticl); 
+router.delete("/delete/:id/:idPro", deletearticl); 
 
 
 

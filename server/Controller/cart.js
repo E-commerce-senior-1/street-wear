@@ -30,14 +30,22 @@ module.exports = {
   },
 
   deletearticl: async (req, res) => {
-    const { iduser, idprod } = req.params;
+    const { id, idPro } = req.params;
+    console.log(id,idPro);
     try {
-      const deletedArticle = await db.cart.destroy({
-        where: { idusers: iduser, idproducts: idprod },
+      const deletedCount = await db.cart.destroy({
+        where: { idusers: id, idproducts: idPro },
       });
-      res.status(200).json({ message: "Article deleted successfully", result: deletedArticle });
+  
+      if (deletedCount > 0) {
+        res.status(200).json({ message: "Article deleted successfully", deletedCount });
+      } else {
+        res.status(404).json({ message: "Article not found or already deleted" });
+      }
     } catch (err) {
-      res.status(400).json(err);
+      console.error(err);
+      res.status(500).json({ message: "Internal Server Error", error: err.message });
     }
   },
+  
 };

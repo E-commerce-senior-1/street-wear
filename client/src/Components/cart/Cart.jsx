@@ -18,10 +18,9 @@ const ShoppingCart = () => {
       console.error("Error fetching data:", error);
     }
   };
-
-  const deleteArticle = (id) => {
+  const deleteArticle = (iduser, idprod) => {
     axios
-      .delete(`http://localhost:3000/api/cart/delete/${id}`)
+      .delete(`http://localhost:3000/api/cart/delete/${iduser}/${idprod}`)
       .then((response) => {
         console.log("Deleted successfully!");
         fetchData();
@@ -30,6 +29,7 @@ const ShoppingCart = () => {
         console.error("Error deleting article:", error);
       });
   };
+  
   
   
   const addaricle = ( idusers,idprducts) => {
@@ -72,7 +72,7 @@ const ShoppingCart = () => {
         Cart
       </button>
       {cartVisible && (
-        <div className="fixed top-20 right-4 bg-gradient-to-r from-indigo-50 via-purple-600 to-pink-500 p-4 rounded shadow-md w-80 flex flex-col">
+        <div className="fixed top-20 right-4 bg- bg-[#ffffff1a] p-4 rounded shadow-md w-80 flex flex-col">
           <h2 className="text-xl font-semibold mb-4">Shopping Cart</h2>
 
           {cartItems.map((ele, i) => (
@@ -80,13 +80,12 @@ const ShoppingCart = () => {
               <div>
                 <img src={ele.picture} alt="Product Image" className="w-16 h-16 rounded-full" />
               </div>
-              kljjjjj
               <div className="flex flex-col ml-4">
                 <p className="font-semibold">{ele.name}</p>
                 <p className="text-gray-500">${(ele.price * quantity).toFixed(2)}</p>
               </div>
               <button
-                onClick={() => deleteArticle(ele.id)}
+                onClick={() => deleteArticle(ele.idusers, ele.idproducts)}
                 className="text-red-500 hover:underline ml-4"
               >
                 Delete
