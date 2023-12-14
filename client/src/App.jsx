@@ -1,4 +1,5 @@
 import React from 'react'
+
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import NavBar from './Components/NavBar/NavBar';
 import Footer from './Components/NavBar/Footer';
@@ -26,6 +27,7 @@ const App = () => {
     </Router>
 
   )
+
 
 }
 

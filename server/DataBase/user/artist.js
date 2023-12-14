@@ -8,6 +8,10 @@ module.exports = (sequelize, DataTypes) => {
         type: DataTypes.STRING,
         allowNull: false,
       },
+<<<<<<< HEAD
+     
+=======
+>>>>>>> f96fedd1e1d226292af021ee990516fa7ef53730
       dateOfBirth: {
         type: DataTypes.STRING,
         allowNull: false,

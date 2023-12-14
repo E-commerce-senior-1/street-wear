@@ -26,6 +26,10 @@ app.use('/api/product',routeProd)
 // 
 // for Raja
 
+const userRoutes = require("./route/user");
+
+app.use("/user", userRoutes);
+
 
 
 
