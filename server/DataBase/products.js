@@ -24,6 +24,7 @@ module.exports = (sequelize, DataTypes) => {
             type: DataTypes.BOOLEAN,
             defaultValue: true,
           },
+          
     });
   
     return products;

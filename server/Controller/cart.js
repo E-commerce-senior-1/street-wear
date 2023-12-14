@@ -1,4 +1,4 @@
-const db = require("../../DataBase/index")
+const db = require("../DataBase/index")
 module.exports = {
 
     
