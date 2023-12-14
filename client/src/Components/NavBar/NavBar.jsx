@@ -5,8 +5,10 @@ import ExploreDropDown from "./ExploreDropDown";
 import DropDownProfile from "./DropDownProfile";
 const NavBar = () => {
   return (
-    <header className="navbar flex justify-evenly md:flex-row">
-      <div className="flex items-center mt-4 md:mt-0 mb-4 md:mb-0 md:ml-4">
+    <header className="navbar w-full">
+      <div className="container flex items-center flex-col md:flex-row">
+
+      <div className="flex items-center mt-4 md:mt-0 mb-4 md:mb-0 md:ml-4 py-8">
         <Link
           to={"/"}
           className="[font-family:'SF_Pro_Display-Semibold',Helvetica] font-normal text-white text-2xl md:text-4xl tracking-[0] leading-[normal] whitespace-nowrap"
@@ -24,20 +26,20 @@ const NavBar = () => {
         <FaSearch className="text-white absolute right-3 top-3.5" />
       </div>
 
-      <div className="flex items-center mt-4 md:mt-0 ml-4 md:ml-4 md:mr-4">
+      <div className="flex items-center mt-4 md:mt-0  md:ml-4 md:mr-4">
         <Link
-          to={"/home"}
+          to={"/"}
           className="[font-family:'SF_Pro_Display-Semibold',Helvetica] font-normal text-white text-base md:text-lg tracking-[0] leading-[normal] whitespace-nowrap"
         >
           Home
         </Link>
       </div>
       
-      <div className="flex items-center mt-4 md:mt-0 ml-4 md:ml-4 md:mr-4 ">
+      <div className="flex items-center mt-4 md:mt-0  md:ml-4 md:mr-4 ">
         <ExploreDropDown />
       
       </div>
-      <div className="flex items-center mt-4 md:mt-0 ml-4 md:ml-4 md:mr-4">
+      <div className="flex items-center mt-4 md:mt-0  md:ml-4 md:mr-4">
         <Link
           to={"/PeronalCollection"}
           className="[font-family:'SF_Pro_Display-Semibold',Helvetica] font-normal text-white text-base md:text-lg tracking-[0] leading-[normal] whitespace-nowrap"
@@ -45,7 +47,7 @@ const NavBar = () => {
           Personal Collection
         </Link>
       </div>
-      <div className="flex items-center mt-4 md:mt-0 ml-4 md:ml-4 md:mr-4">
+      <div className="flex items-center mt-4 md:mt-0  md:ml-4 md:mr-4">
         <Link
           to={"/Drops"}
           className="[font-family:'SF_Pro_Display-Semibold',Helvetica] font-normal text-white text-base md:text-lg tracking-[0] leading-[normal] whitespace-nowrap"
@@ -53,7 +55,7 @@ const NavBar = () => {
           Drops
         </Link>
       </div>
-      <div className="flex items-center mt-4 md:mt-0 ml-4 md:ml-4 md:mr-4">
+      <div className="flex items-center mt-4 md:mt-0 md:ml-4 md:mr-4">
         <Link
           to={"/Aboutus"}
           className="[font-family:'SF_Pro_Display-Semibold',Helvetica] font-normal text-white text-base md:text-lg tracking-[0] leading-[normal] whitespace-nowrap"
@@ -61,8 +63,9 @@ const NavBar = () => {
           More
         </Link>
       </div>
-      <div className="flex items-center mt-4 md:mt-0 ml-4 md:ml-4 md:mr-4">
+      <div className="flex items-center mt-4 md:mt-0 md:ml-4 md:mr-4">
         <DropDownProfile   />
+      </div>
       </div>
      
     </header>

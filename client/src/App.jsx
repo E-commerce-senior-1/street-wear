@@ -1,16 +1,16 @@
 import React from 'react'
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import NavBar from './Components/NavBar/NavBar';
-import Artist from './Components/artist/Artist';
 import Footer from './Components/NavBar/Footer';
+import LandingPage from './Components/Home/LandingPage';
 const App = () => {
   return (
 
     <Router>
         <NavBar/>   
       <Routes>
-        <Route path='/'/>
-        <Route path='/home'/>
+       
+        <Route path='/' element={<LandingPage/>}/>
         <Route path='/PeronalCollection'/>
         <Route path='/Drops'/>
         <Route path='Profile'/>

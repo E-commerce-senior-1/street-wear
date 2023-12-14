@@ -2,12 +2,12 @@ import React from "react";
 import { FaDiscord,FaInstagram ,FaTiktok } from "react-icons/fa";
 const Footer = () => {
   return (
-    <footer className="bottom-12  w-full mt-[300px] mb-[50px]">
+    <footer className=" w-full  pt-40 pb-20">
     
-      <div className="flex justify-evenly">
+      <div className="flex justify-evenly flex-col md:flex-row">
         <div>
           <h1 className="mt-5 ml-12 [font-family:'Poppins-Bold',Helvetica] font-bold text-white text-[20px]  tracking-[0] leading-[normal]">Logo</h1>
-          <p className="w-[400px] mt-5 ml-12 Poppins-Bold [font-family:'Poppins-Medium',Helvetica] font-medium text-[#ffffff80] text-[15px]" >
+          <p className="w-[400px] mt-5 md:ml-12 Poppins-Bold [font-family:'Poppins-Medium',Helvetica] font-medium text-[#ffffff80] text-[15px]" >
             Discover the intersection of style and creativity on our curated
             streetwear E-commerce platform. Uniting designers, brands, and
             artists, our platform is a dynamic showcase of cutting-edge fashion
