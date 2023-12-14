@@ -1,3 +1,12 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+
+#root{
+    height: 100%;
+    width: 100% ;
+
+    background: linear-gradient(to top right, rgb(152.03,76.93,56.26), rgb(24,30,65));
+  background-repeat: no-repeat ; 
+}
