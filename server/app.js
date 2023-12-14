@@ -7,6 +7,7 @@ const db = require("./DataBase/index")
 app.use(cors())
 app.use(express.json())
 
+
 // for Ahmed
 
 
@@ -24,6 +25,10 @@ app.use(express.json())
 
 // 
 // for Raja
+
+const userRoutes = require("./route/user");
+
+app.use("/user", userRoutes);
 
 
 

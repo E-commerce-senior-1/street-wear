@@ -2,7 +2,7 @@ const { Sequelize, DataTypes } = require("sequelize");
 
 //Created a Sequelize instance and passed the appropriate parameters separately,
 //database, user and password fields coming from the config files.
-const sequelize = new Sequelize("estreetcommerce", "root", "root", {
+const sequelize = new Sequelize("estreetcommerce", "root", "route", {
   host: "localhost",
   dialect: "mysql",
 });
