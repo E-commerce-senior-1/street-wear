@@ -25,6 +25,15 @@ module.exports = (sequelize, DataTypes) => {
       coverPic: {
         type: DataTypes.TEXT('long'),
       },
+      createdAt: {
+        type: DataTypes.DATE,
+        defaultValue: sequelize.literal("CURRENT_TIMESTAMP"),
+      },
+      updatedAt: {
+        type: DataTypes.DATE,
+        defaultValue: sequelize.literal("CURRENT_TIMESTAMP"),
+      }
+
     });
   
     return artist;

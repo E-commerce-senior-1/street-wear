@@ -49,5 +49,4 @@ db.brand.hasMany(db.products, {
 });
 
 
-
 module.exports = db;

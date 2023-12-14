@@ -9,7 +9,6 @@ const App = () => {
     <Router>
         <NavBar/>   
       <Routes>
-       
         <Route path='/' element={<LandingPage/>}/>
         <Route path='/PeronalCollection'/>
         <Route path='/Drops'/>
@@ -21,8 +20,8 @@ const App = () => {
       </Routes>
       <Footer/>
     </Router>
-
   )
+
 }
 
 export default App
