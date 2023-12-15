@@ -51,18 +51,53 @@ updateName : (req , res) => {
         res.status(404).send(err)
     }
 },
-updateUserName : (req , res) => {
-
-},
-updateBio : (req , res) => {
-
-},
-updatePfp : (req , res) => {
-
-},
-updateCoverPic : (req , res) => {
-
-},
+updateEmail : (req , res) => {
+    let {email} = req.body
+    let {id} = req.params
+    try{
+        if(!email) res.status(401).send("All inputs are required")
+        db.artist.update({email} , {where : {id}})
+        res.status(200).send("Updated!")
+    }catch (err) {
+        res.status(404).send(err)
+    }
+    },
+    updateBio : (req , res) => {
+        let {bio} = req.body
+        let {id} = req.params
+        try{
+            if(!bio) res.status(401).send("All inputs are required")
+            db.artist.update({bio} , {where : {id}})
+            res.status(200).send("Updated!")
+        }catch (err) {
+            console.log(err)
+            res.status(404).send(err)
+        }
+    },
+    updatePfp : (req , res) => {
+        let {profilePic} = req.body
+        let {id} = req.params
+        try{
+            if(!profilePic) res.status(401).send("All inputs are required")
+            db.artist.update({profilePic} , {where : {id}})
+        res.status(200).send("Updated!")
+        }catch (err) {
+            console.log(err)
+            res.status(404).send(err)
+        }
+    },
+    updateCoverPic : (req , res) => {
+        let {coverPic} = req.body
+        let {id} = req.params
+        try {
+            if(!coverPic) res.status(401).send("All inputs are required")
+            db.artist.update({coverPic} , {where : {id}})
+            res.status(200).send("Updated!")
+        }catch (err) {
+            console.log(err)
+            res.status(404).send(err)
+        }
+    },
 
     
 }
