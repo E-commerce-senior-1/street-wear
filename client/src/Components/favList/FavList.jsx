@@ -1,66 +1,58 @@
-// const favlist =()=>{
-//   return(
-//     <div>
-// <div className="w-3/4 p-4 ">
-//         <h2 className="text-3xl font-bold mb-6">Product Cart</h2>
-//         <div
-//           className={mb-4 ${
-//             isCartHovered
-//               ? "bg-white"
-//               : "bg-gradient-to-r from-purple-500 via-purple-600 to-blue-500"
-//           } }
-//           onMouseEnter={() => setIsCartHovered(true)}
-//           onMouseLeave={() => setIsCartHovered(false)}
-//         ></div>
-//         <div>
-//           {!selectedCategory &&
-//             !filteredProducts.length &&
-//             ${products.length} items}
-//           {selectedCategory && in ${selectedCategory}}
-//           {filteredProducts.length > 0 &&  | ${filteredProducts.length} items}
-//         </div>
+import React from "react";
+import axios from "axios";
 
-//         <br />
-//         <br />
-//         <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-8">
-//           {(selectedCategory || filteredProducts.length > 0
-//             ? filteredProducts
-//             : products
-//           ).map((product) => (
-//             <div
-//               key={product.id}
-//               className={p-4 rounded-md shadow-md transition-transform transform hover:bg-transparent hover:scale-105 hover:opacity-80}
-//             >
-//               <img
-//                 src={product.picture}
-//                 alt={product.name}
-//                 className="w-full h-24 object-cover mb-2 rounded-md"
-//               />
-//               <div className="text-base font-semibold mb-1">
-// alt={product.name}
-//                 className="w-full h-24 object-cover mb-2 rounded-md"
-//               />
-//               <div className="text-base font-semibold mb-1">{product.name}</div>
-//               <div className="text-gray-500 mb-1">{product.category}</div>
-//               <div className="text-sm font-bold text-green-600">
-//                 ${product.price}
-//               </div>
+export const FavList = ({ iduser, idprod, fetchData }) => {
+  const deleteFavList = () => {
+    axios
+      .delete(`http://localhost:3000/api/favlist/delete/${iduser}/${idprod}`)
+      .then((response) => {
+        console.log("Deleted successfully!");
+      })
+      .catch((error) => {
+        console.error("Error deleting article:", error);
+      });
+  };
 
-//               <div className="flex items-center">
-//                 <div className="mr-2 " onClick={()=>{setLike(!like) }}>
-//                   {like ?< FcLikePlaceholder  /> : <FcLike />}
-//                 </div>
-//                 <button className="mt-2 ml-2 bg-green-500 hover:bg-green-600 text-white px-2 py-1 rounded-md self-center">
-//                   Buy Now
-//                 </button>
-//               </div>
-//             </div>
-//           ))}
-//         </div>
-//       </div>
-//     </div>
-//   );
-//     </div>
-//   )
-// }
-// export default favlist;
+  return (
+    <div>
+       <div
+              
+              className={`p-2 rounded-md shadow-md transition-transform transform bg-[#ffffff1a] hover:bg-transparent hover:scale-105 hover:opacity-80`}
+            >
+              <img
+                src=""
+                alt={name}
+                className="w-full h-100 object-cover mb-2 rounded-md"
+              />
+              <div className="text-xs font-medium font-['Poppins'] text-gray-500 mb-1">
+                
+              </div>
+              <div className="flex">
+                <div className="text-sm text-white font-extralight mb-1 mr-20">
+                  
+                </div>
+                <div className="text-sm font-bold text-green-600">
+                  $
+                </div>
+              </div>
+
+              <div className="flex items-center">
+                <div
+                  className="mr-4 "
+                  onClick={() => {
+                    ;
+                  }}
+                >
+                 
+                </div>
+                <button
+                  onClick={() => Addaricle(idusers, idproducts)}
+                  className="mt-2 ml-2 bg-green-500 hover:bg-green-600 text-white px-4 py-1 rounded-md self-center"
+                >
+                  Buy Now
+                </button>
+              </div>
+            </div>
+    </div>
+  );
+};

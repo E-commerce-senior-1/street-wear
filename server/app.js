@@ -4,15 +4,19 @@ const port = 3000;
 const cors = require("cors")
 const db = require('./DataBase/index.js')
 
+
 // db.sequelize.sync({alter : true})
+
 app.use(cors())
 app.use(express.json())
 
 
 // for Ahmed
+const routeProd=require("./route/products")
 
+app.use('/api/product',routeProd)
 
-
+// app.use('/api/product/catg',routeProd)
 
 
 
@@ -21,6 +25,10 @@ app.use(express.json())
 
 // 
 // for Raja
+
+const userRoutes = require("./route/user");
+
+app.use("/user", userRoutes);
 
 
 

@@ -1,6 +1,7 @@
 const db = require("../DataBase/index");
 const { addfavelist, deletefavlist } = require("../DataBase/index");
 
+
 module.exports = {
   addfavelist: async (req, res) => {
     try {
@@ -37,4 +38,5 @@ module.exports = {
       res.status(500).json({ message: "Internal Server Error", error: err.message });
     }
   },
+  
 };
