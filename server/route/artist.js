@@ -4,7 +4,7 @@ const {getUserData , addPost , updateName , updateEmail , updateBio , updatePfp 
 
 router.get("/Profile/:email" , getUserData )
 router.post("/Profile/Post/:idartist" , addPost )
-router.put("/Profile/Name/:id" , updateName)
+router.put("/Profile/Name/:idartist" , updateName)
 router.put("/Profile/Email/:id" , updateEmail)
 router.put("/Profile/Bio/:id" , updateBio)
 router.put("/Profile/ProfilePic/:id" , updatePfp)

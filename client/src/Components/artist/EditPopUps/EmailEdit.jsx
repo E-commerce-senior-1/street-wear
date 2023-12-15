@@ -1,6 +1,6 @@
 import React from 'react'
 
-const UsernameEdit = ({editPopUp , closePopUp}) => {
+const EmailEdit = ({editPopUp , closePopUp}) => {
   const handlelosePopUp = (e) => {
     if (e.target.id === 'UsernameContainer') {
       closePopUp();
@@ -20,7 +20,7 @@ const UsernameEdit = ({editPopUp , closePopUp}) => {
           className='w-full p-3 justify-center items-center'>
           <h2
             className='font-semibold py-3 text-center text-xl text-[#ebebeb]'>
-              Define your Username
+              Define your Email
           </h2>
           <React.Fragment>
           <div className="px-4 mt-5 shadow w-auto self-center rounded-lg dark:bg-dark-second">
@@ -42,4 +42,4 @@ const UsernameEdit = ({editPopUp , closePopUp}) => {
 
 }
 
-export default UsernameEdit
+export default EmailEdit
