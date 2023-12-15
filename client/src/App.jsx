@@ -19,14 +19,17 @@ const App = () => {
 const [currentUser ,setCurrentUser] = useState(JSON.parse(localStorage.getItem("user")))
 
 
-const fetchUserData =()=>{
+const fetchArtistData =()=>{
   axios.get(`http://localhost:3000/api/artist/Profile/${currentUser.email}`).then((res) => setCurrentUser(res.data[0])).catch((err) => console.log(err))
 }
+
 console.log(currentUser);
 useEffect(()=> {
   
   if (window.location.pathname === '/SignIn' || window.location.pathname === '/SignUp') setView(true)
-  fetchUserData()
+  if(localStorage.length) {
+    fetchArtistData()
+  }
 },[])
 
   return (

@@ -1,15 +1,25 @@
-import React, { Fragment } from 'react';
+import React, { Fragment, useContext, useState } from 'react';
 import { Menu, Transition } from '@headlessui/react';
 import { Link } from 'react-router-dom';
 import { ChevronDownIcon } from '@heroicons/react/20/solid';
 import { FaUser } from "react-icons/fa";
+import { userContext } from '../../App';
+import { Navigate } from "react-router-dom";
 
 function classNames(...classes) {
   return classes.filter(Boolean).join(' ');
 }
-import { userContext } from '../../App';
-const DropDownProfile = ({ currentUser }) => {
-  console.log(userContext,'hey from dop');
+
+const DropDownProfile = () => {
+  const currentUser = useContext(userContext)
+  const user = window.localStorage.getItem('user')
+  console.log(user,'fffffffffffff')
+  const handleLogout = ()=>{
+    window.localStorage.clear()
+    return(
+    <Navigate to="/" />
+    )
+  }
   return (
     <Menu as="div" className="relative inline-block text-left">
       <div>
@@ -30,12 +40,12 @@ const DropDownProfile = ({ currentUser }) => {
       >
         <Menu.Items className="absolute right-0 z-10 mt-2 w-56 origin-top-right rounded-md bg-[#ffffff1a] shadow-lg ring-1 ring-black ring-opacity-5 focus:outline-none">
           <div className="py-1">
-            {currentUser ? (
+            {user ? (
               <>
                 <Menu.Item>
                   {({ active }) => (
                     <Link
-                      to="/profile"
+                      to="/Profile"
                       className={classNames(
                         active ? 'bg-[#ffffff1a] text-white' : 'text-white',
                         'block px-4 py-2 text-sm'
@@ -48,11 +58,12 @@ const DropDownProfile = ({ currentUser }) => {
                 <Menu.Item>
                   {({ active }) => (
                     <Link
-                      to="/home"
+                      to="/"
                       className={classNames(
                         active ? 'bg-[#ffffff1a] text-white' : 'text-white',
                         'block px-4 py-2 text-sm'
                       )}
+                      onClick={() => handleLogout()}
                     >
                       Logout
                     </Link>
