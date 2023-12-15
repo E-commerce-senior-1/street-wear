@@ -7,8 +7,9 @@ import { FaUser } from "react-icons/fa";
 function classNames(...classes) {
   return classes.filter(Boolean).join(' ');
 }
-
-const DropDownProfile = ({ isLoggedIn }) => {
+import { userContext } from '../../App';
+const DropDownProfile = ({ currentUser }) => {
+  console.log(userContext,'hey from dop');
   return (
     <Menu as="div" className="relative inline-block text-left">
       <div>
@@ -29,7 +30,7 @@ const DropDownProfile = ({ isLoggedIn }) => {
       >
         <Menu.Items className="absolute right-0 z-10 mt-2 w-56 origin-top-right rounded-md bg-[#ffffff1a] shadow-lg ring-1 ring-black ring-opacity-5 focus:outline-none">
           <div className="py-1">
-            {isLoggedIn ? (
+            {currentUser ? (
               <>
                 <Menu.Item>
                   {({ active }) => (

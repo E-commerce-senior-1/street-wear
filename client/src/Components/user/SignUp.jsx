@@ -201,9 +201,9 @@ const SignUp = () => {
 
                 <div class="mt-6 flex items-center justify-between"></div>
                 <button
-                  onClick={()=> {
+                  onClick={()=>{
                     register()
-                    signUp()
+                     signUp()
                   }}
                   className="text-white text-base whitespace-nowrap justify-center items-stretch bg-[linear-gradient(214deg,#B75CFF_6.04%,#671AE4_92.95%)] mt-6 px-5 py-1 rounded-[121px] self-end"
                 >
