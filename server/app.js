@@ -60,7 +60,8 @@ app.use("/api/favlist",ControllerfavList)
 // 
 // for Hassan
 
-
+const artistRoutes = require("./route/artist.js")
+app.use("/api/artist" , artistRoutes)
 
 
 
