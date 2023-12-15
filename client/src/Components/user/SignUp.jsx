@@ -36,7 +36,7 @@ const SignUp = () => {
 
   return (
     <>
-      <div className="relative bg-[linear-gradient(113deg,#984D38_-30.3%,#181E41_58.12%)] flex w-full flex-col justify-center items-center px-16 py-12 max-md:max-w-full max-md:px-5">
+      <div className="relative bg-[linear-gradient(113deg,#984D38_-30.3%,#181E41_58.12%)] flex w-full h-screen flex-col justify-center items-center px-16 py-12 max-md:max-w-full max-md:px-5">
         <div className="w-full max-w-[1131px] mt-28 mb-20 max-md:max-w-full max-md:my-10">
           <div className="gap-5 flex max-md:flex-col max-md:items-stretch max-md:gap-0">
             <div className="flex flex-col items-stretch w-[49%] max-md:w-full max-md:ml-0">

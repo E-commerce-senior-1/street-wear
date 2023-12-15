@@ -5,7 +5,7 @@ const cors = require("cors")
 const db = require('./DataBase/index.js')
 
 
-// db.sequelize.sync({alter : true})
+// db.sequelize.sync({alter : true})    
 
 app.use(cors())
 app.use(express.json())
@@ -25,10 +25,12 @@ app.use('/api/product',routeProd)
 
 // 
 // for Raja
+const authRouter = require("./route/user.js");
 
-const userRoutes = require("./route/user");
 
-app.use("/user", userRoutes);
+app.use("/", authRouter);
+
+
 
 
 

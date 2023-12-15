@@ -4,6 +4,7 @@ import { Link } from "react-router-dom";
 const LandingPage = () => {
   return (
     <>
+    {/* main and creators buttons */}
       <div className="flex justify-center pt-[104px] ">
         <div className="flex w-full   justify-around">
           <div className="flex items-center justify-center gap-4 p-4 bg-purple-600 rounded-full w-[164px] h-[45px]">
@@ -18,9 +19,10 @@ const LandingPage = () => {
           </div>
         </div>
       </div>
-
-      <div className="mx-auto mt-8 flex flex-col items-center justify pt-20 gap-20">
-        <div>
+{/* text and images */}
+      <div className="mx-auto mt-8 flex flex-col items-center justify-evenly pt-20 gap-20 ">
+        <div className="flex justify-evenly "> 
+        {/* text */}
           <div className="w-full text-white text-6xl font-extrabold font-['SF Pro Display'] leading-[81px] tracking-wide">
             Clothes are the
             <br />
@@ -30,6 +32,7 @@ const LandingPage = () => {
               vulputate libero et velit.
             </div>
           </div>
+  {/* images */}
           <div
             style={{
               "grid-template-columns":
@@ -41,7 +44,7 @@ const LandingPage = () => {
               className="w-48 h-56  rounded-lg"
               src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSWTStMfvc1_3lm43YOoCXGaWLl5007Vkd4O9mN9jbgaM4wq0vHDyp8o5yqCJMWpOfGfJI&usqp=CAU"
               alt=""
-            />{" "}
+            />
             <img
               className="w-48  h-56  row-start-2 rounded-lg"
               src="https://i.ebayimg.com/images/g/JesAAOSwtqxjNFaR/s-l1600.jpg"
@@ -52,11 +55,6 @@ const LandingPage = () => {
               src="https://static.zara.net/photos///2023/I/0/2/p/4432/415/401/2/w/287/4432415401_6_1_1.jpg?ts=1689085205387"
               alt=""
             />
-            <img
-              className="w-48 h-96  rounded-lg"
-              src="https://static.bershka.net/4/photos2/2024/V/0/1/p/0009/171/400//04/6fd646ec5cc2986fd95b195ffcb7d6e3-0009171400_2_4_0.jpg?cropfixwidth=2052&imwidth=750&impolicy=bershka-crop-fix-width-itxmedium&imformat=chrome"
-              alt=""
-            />
             
             <img
               className="w-48 h-56  row-span-2 rounded-lg"
@@ -65,8 +63,8 @@ const LandingPage = () => {
             />
           </div>
         </div>
-
-        <div className="flex items-center">
+{/* buttons */}
+        <div className="">   
           <div className="w-fit h-11 px-5 py-2.5 bg-gradient-to-bl from-purple-500 to-violet-700 rounded-lg justify-center items-center gap-2.5 inline-flex  mr-[10px]">
             <Link
               to={"/Drops"}
@@ -85,7 +83,7 @@ const LandingPage = () => {
             </Link>
           </div>
         </div>
-
+{/* stats */}
         <div className="w-full h-20 flex justify-evenly mt-8">
           <div className="w-16 h-20">
             <h1 className="text-white text-3xl font-bold font-['Poppins']">
