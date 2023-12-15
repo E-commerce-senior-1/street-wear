@@ -7,6 +7,7 @@ module.exports = {
   } else {
     table = db.users;
   }
+  console.log(req.params.role)
   try {
     const { name, email, dateOfBirth, phoneNum } = req.body;
     const user = await table.findAndCountAll({ where: { email } });
