@@ -1,6 +1,5 @@
 import React from 'react'
 import Banner from './Banner'
-import NavBar from '../question/Question'
 import Posts from '../posts/Posts'
 import ProfilePictures from './ProfilePictures'
 import CreatePost from './createPost'
