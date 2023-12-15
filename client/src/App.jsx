@@ -11,7 +11,7 @@ import SignUp from './Components/user/SignUp'
 const userContext = createContext()
 const App = () => {
   const [view , setView] = useState(false)
-
+const [currentUser ,setCurrentUser] = useState(JSON.parse(localStorage.getItem("user")))
 useEffect(()=> {
   
   if (window.location.pathname === '/SignIn' || window.location.pathname === '/SignUp') setView(true)
