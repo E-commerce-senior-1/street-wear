@@ -2,6 +2,9 @@ import React from "react";
 import axios from "axios";
 
 export const FavList = ({ iduser, idprod, fetchData }) => {
+  
+  
+  
   const deleteFavList = () => {
     axios
       .delete(`http://localhost:3000/api/favlist/delete/${iduser}/${idprod}`)
@@ -11,6 +14,20 @@ export const FavList = ({ iduser, idprod, fetchData }) => {
       .catch((error) => {
         console.error("Error deleting article:", error);
       });
+
+
+
+      const addFavelist = () => {
+        axios
+        .get(`http://localhost:3000/api/favlist/get/${iduser}/${idprod}`)
+        .then((response) => {
+            console.log("Added successfully!");
+            fetchData();
+          })
+        .catch((error) => {
+            console.error("Error adding article:", error);
+          });
+      }
   };
 
   return (
@@ -32,7 +49,7 @@ export const FavList = ({ iduser, idprod, fetchData }) => {
                   
                 </div>
                 <div className="text-sm font-bold text-green-600">
-                  $
+                  
                 </div>
               </div>
 

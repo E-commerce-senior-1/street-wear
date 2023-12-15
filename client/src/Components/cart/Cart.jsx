@@ -6,19 +6,23 @@ const ShoppingCart = () => {
   const [cartItems, setCartItems] = useState([]);
   const [quantity, setQuantity] = useState(1);
   const [cartVisible, setCartVisible] = useState(false);
+  const [update,setUpdated] = useState(false);
+  
 
   useEffect(() => {
     fetchData();
-  }, []);
+  }, [update]);
 
   const fetchData = async () => {
     try {
-      const response = await axios.get(`http://localhost:3000/api/cart/get/${iduser}`);
-      setCartItems(response.data);
+      const response = await axios.get(`http://localhost:3000/api/cart/getone/55`);
+    setCartItems(response.data);
     } catch (error) {
       console.error("Error fetching data:", error);
     }
   };
+
+
 
   const deleteArticle = async (iduser, idprod) => {
     axios
@@ -31,16 +35,20 @@ const ShoppingCart = () => {
         console.error("Error deleting article:", error);
       });
   };
+
+
   
   const getone= ()=>{
-    axios.get(`http://localhost:3000/api/cart/getone/${id}`)
+    axios.get(`http://localhost:3000/api/cart/getone/${iduser}`)
     .then((response) => {
         console.log(response.data);
       })
       .catch((error) => {
-        console.error("Error  article:");
+        console.error("Error article:");
       })
   }
+
+
 
   const getTotalPrice = () => {
     return cartItems
