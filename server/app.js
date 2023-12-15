@@ -5,7 +5,7 @@ const cors = require("cors")
 const db = require('./DataBase/index.js')
 
 
-// db.sequelize.sync({alter : true})
+// db.sequelize.sync({alter : true})    
 
 app.use(cors())
 app.use(express.json())

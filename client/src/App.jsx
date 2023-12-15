@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { createContext, useEffect, useState } from 'react'
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import NavBar from './Components/NavBar/NavBar';
 import Footer from './Components/NavBar/Footer';
@@ -8,12 +8,24 @@ import Products from './Components/products/Products'
 import Profile from './Components/artist/Profile'
 import SignIn from './Components/user/SignIn'
 import SignUp from './Components/user/SignUp'
-
+const userContext = createContext()
 const App = () => {
-  return (
+  const [view , setView] = useState(false)
 
+useEffect(()=> {
+  
+  if (window.location.pathname === '/SignIn' || window.location.pathname === '/SignUp') setView(true)
+
+},[])
+
+  return (
+    
     <Router>
-        <NavBar/>      
+      <userContext.Provider >
+       { !view  ? (
+         <NavBar />
+         ) : null}   
+        {/* <NavBar/> */}
       <Routes>
         <Route path='/' element={<LandingPage/>}/>
         {/* <Route path='/PeronalCollection'element={<FavList/>}/> */}
@@ -24,7 +36,11 @@ const App = () => {
         <Route path='/Aboutus'/>
         <Route path='/stats'/>
       </Routes>
-      <Footer/>
+      {!view ? (
+        <Footer />
+        ) : null}  
+      {/* <Footer/> */}
+        </userContext.Provider>
     </Router>
 
   )
