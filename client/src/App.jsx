@@ -8,6 +8,7 @@ import Products from './Components/products/Products'
 import Profile from './Components/artist/Profile'
 import SignIn from './Components/user/SignIn'
 import SignUp from './Components/user/SignUp'
+import Statis from './Components/statis/Statis';
 const userContext = createContext()
 const App = () => {
   const [view , setView] = useState(false)
@@ -34,7 +35,7 @@ useEffect(()=> {
         <Route path="/SignIn" element={<SignIn />} />
           <Route path="/SignUp" element={<SignUp/>} />
         <Route path='/Aboutus'/>
-        <Route path='/stats'/>
+        <Route path='/Statis' element={<Statis/>}/>
       </Routes>
       {!view ? (
         <Footer />
