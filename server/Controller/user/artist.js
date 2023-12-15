@@ -1,10 +1,10 @@
 const db = require("../../DataBase/index")
 
 module.exports = {
-getUserData : (req , res) => {
+getUserData : async (req , res) => {
     let {email} = req.params
     try {
-        const data = db.artist.findAll({ where : {email}})
+        const data = await db.artist.findAll({ where : {email}})
          res.status(200).json(data)
     }catch(err) {
         console.log(err)

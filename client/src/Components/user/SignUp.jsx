@@ -5,13 +5,34 @@ import { createUserWithEmailAndPassword } from "firebase/auth";
 import { auth } from "./firebase-config";
 
 import { useNavigate } from "react-router-dom";
+import axios from "axios";
 
 const SignUp = () => {
   const [registerEmail, setRegisterEmail] = useState("");
+  const [registerPhone, setRegisterPhone] = useState("");
+  const [registerName, setRegisterName] = useState("");
+  const [dateOfB, setDateOfB] = useState("");
   const [registerPassword, setRegisterPassword] = useState("");
-  const [isUser, setIsUser] = useState(false);
   const [isArtist, setIsArtist] = useState(false);
-  const navigate = useNavigate(); // Initialize useNavigate
+  const navigate = useNavigate();
+
+  console.log(isArtist,'testtttt');
+  const signUp = () => {
+   if (!isArtist) {
+     axios.post("http://127.0.0.1:3000/signup/user" , {
+       name : registerName,
+       email : registerEmail,
+       dateOfBirth : dateOfB,
+       phoneNum : registerPhone
+     }).then((res) => console.log("added!")).catch((err) => console.log(err))
+    } else {
+      axios.post("http://127.0.0.1:3000/signup/artist", {
+        name: registerName,
+        email: registerEmail,
+        dateOfBirth: dateOfB,
+      }).then((res) => console.log("added!")).catch((err) => console.log(err))
+    }
+  };
 
   const register = async () => {
     try {
@@ -23,7 +44,7 @@ const SignUp = () => {
 
       const user = userCredential.user;
 
-      localStorage.setItem("user", JSON.stringify(user));
+      localStorage.setItem("user", user);
 
       console.log("User signed up successfully:", user);
 
@@ -99,18 +120,20 @@ const SignUp = () => {
                       <input
                         class="capitalize shadow-2xl p-3 ex w-full outline-none focus:border-solid focus:border-[1px] border-[#035ec5] placeholder:text-black"
                         type="text"
-                        placeholder="First Name"
-                        id="First-Name"
-                        name="First-Name"
+                        placeholder="Name"
+                        id="Name"
+                        name="Name"
                         required=""
+                        onChange={(e) => setRegisterName(e.target.value)}
                         className="w-full pl-12 pr-3 py-2 text-gray-500 bg-transparent outline-none border focus:border-indigo-600 shadow-sm rounded-lg"
                       />
                       <input
                         class="p-3 capitalize shadow-2xl  glass w-full placeholder:text-black outline-none focus:border-solid focus:border-[1px] border-[#035ec5]"
                         type="text"
-                        placeholder="Last Name"
-                        id="Last-Name"
-                        name="Last-Name"
+                        placeholder="+216"
+                        id="PhoneNum"
+                        name="PhoneNum"
+                        onChange={(e) => setRegisterPhone(e.target.value)}
                         className="w-full pl-12 pr-3 py-2 text-gray-500 bg-transparent outline-none border focus:border-indigo-600 shadow-sm rounded-lg"
                       />
                     </div>
@@ -128,9 +151,9 @@ const SignUp = () => {
                       />
                     </div>
                   </div>
-                  <div class="mt-6">
+                  <div className="mt-6">
                     <label
-                      class="block text-sm font-medium text-gray-700"
+                      className="block text-sm font-medium text-gray-700"
                       for="dob"
                     >
                       Date of Birth
@@ -141,6 +164,7 @@ const SignUp = () => {
                         required=""
                         type="date"
                         name="dob"
+                        onChange={(e) => setDateOfB(e.target.value)}
                         id="dob"
                         className="w-full pl-12 pr-3 py-2 text-gray-500 bg-transparent outline-none border focus:border-indigo-600 shadow-sm rounded-lg"
                       />
@@ -150,22 +174,26 @@ const SignUp = () => {
                 <div class="flex items-center justify-center mt-6">
                   <span class="mr-3 text-gray-700 font-medium"></span>
                   <label class="inline-flex items-center">
-                    <input
+                    {/* <input
                       type="checkbox"
                       class="form-radio h-5 w-5 text-pink-600"
                       value="User"
                       checked={isUser}
-                      onChange={() => setIsUser(!isUser)}
-                    />
-                    <span class="ml-2 text-gray-700">Buyer</span>
+                      onChange={() => {setIsUser(!isUser)
+                        console.log(isUser)
+                      }}
+                    /> */}
+                    {/* <span class="ml-2 text-gray-700">Buyer</span> */}
                   </label>
                   <label class="inline-flex items-center ml-6">
                     <input
                       type="Checkbox"
                       class="form-radio h-5 w-5 text-purple-600"
-                      value="Artist"
+                      // value="Artist"
                       checked={isArtist}
-                      onChange={() => setIsArtist(!isArtist)}
+                      onChange={() => {setIsArtist(!isArtist)
+                        console.log(isArtist)
+                      }}
                     />
                     <span class="ml-2 text-gray-700">Artist</span>
                   </label>
@@ -173,7 +201,7 @@ const SignUp = () => {
 
                 <div class="mt-6 flex items-center justify-between"></div>
                 <button
-                  onClick={register}
+                  onClick={(register, signUp)}
                   className="text-white text-base whitespace-nowrap justify-center items-stretch bg-[linear-gradient(214deg,#B75CFF_6.04%,#671AE4_92.95%)] mt-6 px-5 py-1 rounded-[121px] self-end"
                 >
                   Create Account

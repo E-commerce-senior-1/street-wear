@@ -8,20 +8,27 @@ import Products from './Components/products/Products'
 import Profile from './Components/artist/Profile'
 import SignIn from './Components/user/SignIn'
 import SignUp from './Components/user/SignUp'
-const userContext = createContext()
+import axios from 'axios';
+ export  const userContext = createContext()
 const App = () => {
   const [view , setView] = useState(false)
+const [currentUser ,setCurrentUser] = useState(JSON.parse(localStorage.getItem("user")))
 
+
+const fetchUserData =()=>{
+  axios.get(`http://localhost:3000/api/artist/Profile/${currentUser.email}`).then((res) => setCurrentUser(res.data[0])).catch((err) => console.log(err))
+}
+console.log(currentUser);
 useEffect(()=> {
   
   if (window.location.pathname === '/SignIn' || window.location.pathname === '/SignUp') setView(true)
-
+  fetchUserData()
 },[])
 
   return (
     
     <Router>
-      <userContext.Provider >
+      <userContext.Provider value={currentUser} >
        { !view  ? (
          <NavBar />
          ) : null}   
