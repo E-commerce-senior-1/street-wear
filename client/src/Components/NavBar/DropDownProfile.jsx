@@ -12,8 +12,8 @@ function classNames(...classes) {
 
 const DropDownProfile = () => {
   const currentUser = useContext(userContext)
-  const user = window.localStorage.getItem('user')
-  console.log(user,'fffffffffffff')
+  const user = JSON.parse(window.localStorage.getItem('user'))
+  console.log(user?.photoURL,'fffffffffffff')
   const handleLogout = ()=>{
     window.localStorage.clear()
     return(
@@ -24,7 +24,7 @@ const DropDownProfile = () => {
     <Menu as="div" className="relative inline-block text-left">
       <div>
         <Menu.Button className="inline-flex w-full justify-center gap-x-1.5 rounded-md bg-transparent px-3 py-2 text-sm [font-family:'SF_Pro_Display-Semibold',Helvetica] font-normal  text-white shadow-sm  ring-inset hover:bg-gray-10">
-         <FaUser/>
+          <img src={user?.photoURL} alt="user pic" className="w-8 h-8 rounded-full"/>
           <ChevronDownIcon className="-mr-1 h-5 w-5 text-gray-400" aria-hidden="true" />
         </Menu.Button>
       </div>
