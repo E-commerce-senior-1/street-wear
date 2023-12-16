@@ -13,7 +13,7 @@ function classNames(...classes) {
 const DropDownProfile = () => {
   const currentUser = useContext(userContext)
   const user = JSON.parse(window.localStorage.getItem('user'))
-  console.log(user?.photoURL,'fffffffffffff')
+  console.log(user,'fffffffffffff')
   const handleLogout = ()=>{
     window.localStorage.clear()
     return(
