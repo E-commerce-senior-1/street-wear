@@ -14,6 +14,7 @@ module.exports = {
         .status(200)
         .json({ message: "Article added successfully", result: newArticle });
     } catch (error) {
+      
       console.error(error);
       res.status(500).json({ error: "Internal Server Error" });
     }
@@ -72,29 +73,25 @@ module.exports = {
     }
   },
 
-
-  getbyId: async (req, res) => {
-    var userId = req.params.id;
-    console.log(userId, "llllll");
+  getbyId : async (req, res) => {
+    var userId = req.params.userId;
     try {
-      const user = await db.products.findByPk(userId, {
-      include: 
-          {
-            model: db.users,
-            where: { id: userId },
-          },
-      });
-      if (!user) {
-        return res
-          .status(404)
-          .json({ success: false, message: "User not found" });
-      }
-      res.status(200).json({ success: true, products: user.products });
+        const user = await db.users.findByPk(userId, {
+            include: [
+                {
+                    model: db.products,
+                    as: 'products',
+                    attributes: ['id', 'name', 'price', 'img', 'intQty', 'quantity'],
+                },
+            ],
+        });
+        if (!user) {
+            return res.status(404).json({ success: false, message: 'User not found' });
+        }
+        res.status(200).json({ success: true, products: user.products });
     } catch (error) {
-      console.error("Error retrieving products for user:");
-      res
-        .status(500)
-        .json( "Internal server error" );
+        console.error('Error retrieving products for user:', error);
+        res.status(500).json({ success: false, message: 'Internal server error' });
     }
-  },
+}
 };

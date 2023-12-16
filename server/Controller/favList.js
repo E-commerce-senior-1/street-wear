@@ -1,24 +1,33 @@
 const db = require("../DataBase/index");
-const { addfavelist, deletefavlist } = require("../DataBase/index");
+
+
 
 
 module.exports = {
-  addfavelist: async (req, res) => {
-    try {
-      const { idusers, idproducts } = req.body;
 
-      const newfavorite = await db.favlist.create({
-        idusers,
-        idproducts,
+
+
+  getfanList: async (req, res) => {
+    try {
+      const articleId = req.params.id;
+      const article = await db.products.findAll({
+        include: {
+          model: db.cart,
+          where: { id: articleId },
+        },
       });
-      res
-        .status(200)
-        .json({ message: "favelise added successfully", result: newfavorite });
-    } catch (error) {
-      console.error(error);
+      if (!article) {
+        return res.status(404).json({ error: "favolist not found" });
+      }
+      res.status(200).json(article);
+    } catch (err) {
+      console.error(err);
       res.status(500).json({ error: "Internal Server Error" });
     }
   },
+
+
+
 
   deletefavlist: async (req, res) => {
     const { id, idPro } = req.params;

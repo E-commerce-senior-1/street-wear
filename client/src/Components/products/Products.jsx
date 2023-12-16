@@ -14,10 +14,27 @@ const Products = () => {
   const [showOptions, setShowOptions] = useState(false);
   const [isCartHovered, setIsCartHovered] = useState(false);
   const [like, setLike] = useState(false);
+  const [update,setUpdated] = useState(false);
 
 
+// work of Ameur
+  const Addaricle = (  idusers,idproducts ) => {
+    axios.post('http://localhost:3000/api/cart/post', { idusers,idproducts  })
+    .then(response => {
+        setUpdated(response.data)
+        console.log(response.data);
 
- 
+        console.log("Item added to the cart successfully");
+    
+      })
+      .catch(error => {
+        console.error(error);
+      });
+  };
+
+  
+// work of Ameur
+
   
   
   const fetchData = async () => {
@@ -57,17 +74,7 @@ const Products = () => {
     setShowOptions(false);
   };
 
-  const Addaricle = (  idusers,idproducts ) => {
-    axios.post('http://localhost:3000/api/cart/post', { idusers,idproducts  })
-      .then(response => {
-        console.log("Item added to the cart successfully");
-    
-      })
-      .catch(error => {
-        console.error(error);
-      });
-  };
-
+ 
   return (
     <div className="flex min-h-screen">
      
@@ -189,14 +196,14 @@ const Products = () => {
               <div className="flex items-center">
                 <div
                   className="mr-4 "
-                  onClick={() => {
-                    setLike(!like);
-                  }}
+                  onClick={ 
+                    addFavelist
+                  }
                 >
                   {like ? <FcLikePlaceholder /> : <FcLike />}
                 </div>
                 <button
-                  onClick={() => Addaricle(1, product.id )}
+                  onClick={() => Addaricle(1 , product.id )}
                   className="mt-2 ml-2 bg-green-500 hover:bg-green-600 text-white px-4 py-1 rounded-md self-center"
                 >
                   Buy Now

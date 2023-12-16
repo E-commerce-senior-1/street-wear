@@ -4,19 +4,23 @@ import { GrCart } from "react-icons/gr";
 
 const ShoppingCart = () => {
   const [cartItems, setCartItems] = useState([]);
+  console.log(cartItems.name, "cartItems");
   const [quantity, setQuantity] = useState(1);
   const [cartVisible, setCartVisible] = useState(false);
-  const [update,setUpdated] = useState(false);
-  
 
   useEffect(() => {
     fetchData();
-  }, [update]);
-
-  const fetchData = async () => {
+    getone ()
+    
+  }, []);
+console.log(window.localStorage);
+  const fetchData = async (id) => {
     try {
-      const response = await axios.get(`http://localhost:3000/api/cart/getone/55`);
-    setCartItems(response.data);
+      const response = await axios.get(
+        `http://localhost:3000/api/cart/getone/${idprod}`
+      );
+      console.log(response, "list cart");
+      setCartItems(response.data);
     } catch (error) {
       console.error("Error fetching data:", error);
     }
@@ -29,26 +33,23 @@ const ShoppingCart = () => {
       .delete(`http://localhost:3000/api/cart/delete/${iduser}/${idprod}`)
       .then((response) => {
         console.log("Deleted successfully!");
-        fetchData();
+        // fetchData();
       })
       .catch((error) => {
         console.error("Error deleting article:", error);
       });
   };
 
-
-  
-  const getone= ()=>{
-    axios.get(`http://localhost:3000/api/cart/getone/${iduser}`)
-    .then((response) => {
-        console.log(response.data);
+  const getone = (id) => {
+    axios
+      .get(`http://localhost:3000/api/cart/getone/117`)
+      .then((response) => {
+        setCartItems(response.data);
       })
       .catch((error) => {
         console.error("Error article:");
-      })
-  }
-
-
+      });
+  };
 
   const getTotalPrice = () => {
     return cartItems
@@ -73,15 +74,21 @@ const ShoppingCart = () => {
   return (
     <div className="relative">
       <div>
-        <GrCart onClick={toggleCartVisibility} className="cursor-pointer text-3xl" />
+        <GrCart
+          onClick={toggleCartVisibility}
+          className="cursor-pointer text-3xl"
+        />
       </div>
 
       {cartVisible && (
-        <div className="fixed top-20 right-4 bg-white p-4 rounded shadow-md w-80">
+        <div className="fixed top-30 right-4 bg-white p-4 rounded shadow-md w-80">
           <h2 className="text-xl font-semibold mb-4">Shopping Cart</h2>
 
           {cartItems.map((ele, i) => (
-            <div key={i} className="flex items-center justify-between mb-4 border-b pb-2">
+            <div
+              key={i}
+              className="flex items-center justify-between mb-4 border-b pb-2"
+            >
               <div>
                 <img
                   src={ele.picture}
@@ -91,10 +98,12 @@ const ShoppingCart = () => {
               </div>
               <div className="flex flex-col ml-4">
                 <p className="font-semibold">{ele.name}</p>
-                <p className="text-gray-500">${(ele.price * quantity).toFixed(2)}</p>
+                <p className="text-gray-500">
+                  ${(ele.price * quantity).toFixed(2)}
+                </p>
               </div>
               <button
-            onClick={() => deleteArticle(ele.iduser, ele.idprod)}
+                onClick={() => deleteArticle(ele.iduser, ele.idprod)}
                 className="text-red-500 hover:underline ml-4"
               >
                 Delete
