@@ -80,7 +80,7 @@ const ShoppingCart = () => {
               <div>
                 <img src={ele.picture} alt="Product Image" className="w-16 h-16 rounded-full" />
               </div>
-              kljjjjj
+              
               <div className="flex flex-col ml-4">
                 <p className="font-semibold">{ele.name}</p>
                 <p className="text-gray-500">${(ele.price * quantity).toFixed(2)}</p>
