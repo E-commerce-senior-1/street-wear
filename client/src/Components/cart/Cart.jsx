@@ -67,7 +67,7 @@ const ShoppingCart = () => {
       
       <button
         onClick={toggleCartVisibility}
-        className="fixed right-4 top-4 bg-blue-500 text-white px-4 py-2 rounded-md"
+        className=" right-4 top-4 text-white px-4 py-2 rounded-md"
       >
         Cart
       </button>
@@ -80,7 +80,7 @@ const ShoppingCart = () => {
               <div>
                 <img src={ele.picture} alt="Product Image" className="w-16 h-16 rounded-full" />
               </div>
-              kljjjjj
+              
               <div className="flex flex-col ml-4">
                 <p className="font-semibold">{ele.name}</p>
                 <p className="text-gray-500">${(ele.price * quantity).toFixed(2)}</p>

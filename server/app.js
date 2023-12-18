@@ -5,7 +5,7 @@ const cors = require("cors")
 const db = require('./DataBase/index.js')
 
 
-// db.sequelize.sync({alter : true})
+// db.sequelize.sync({alter : true})    
 
 app.use(cors())
 app.use(express.json())
@@ -25,6 +25,12 @@ app.use('/api/product',routeProd)
 
 // 
 // for Raja
+const authRouter = require("./route/user.js");
+
+
+app.use("/", authRouter);
+
+
 
 
 
@@ -56,13 +62,14 @@ app.use("/api/favlist",ControllerfavList)
 // 
 // for Hassan
 
+const artistRoutes = require("./route/artist.js")
+app.use("/api/artist" , artistRoutes)
 
 
 
 
-
-
-
+const postsRoutes = require("./route/posts.js")
+app.use("/api/posts" , postsRoutes)
 
 
 
@@ -74,8 +81,10 @@ app.use("/api/favlist",ControllerfavList)
 
 //
 // for Aziz
-
-
+const brandRoutes = require("./route/brands.js")
+app.use("/api/Brand" , brandRoutes)
+const questionRoutes = require("./route/question.js")
+app.use("/api/Question" , questionRoutes)
 
 
 

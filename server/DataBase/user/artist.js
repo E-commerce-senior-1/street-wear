@@ -8,10 +8,6 @@ module.exports = (sequelize, DataTypes) => {
         type: DataTypes.STRING,
         allowNull: false,
       },
-      password: {
-        type: DataTypes.STRING,
-        allowNull: false,
-      },
       dateOfBirth: {
         type: DataTypes.STRING,
         allowNull: false,
@@ -25,15 +21,7 @@ module.exports = (sequelize, DataTypes) => {
       coverPic: {
         type: DataTypes.TEXT('long'),
       },
-      createdAt: {
-        type: DataTypes.DATE,
-        defaultValue: sequelize.literal("CURRENT_TIMESTAMP"),
-      },
-      updatedAt: {
-        type: DataTypes.DATE,
-        defaultValue: sequelize.literal("CURRENT_TIMESTAMP"),
-      }
-
+     
     });
   
     return artist;

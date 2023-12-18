@@ -1,29 +1,77 @@
-import React from 'react'
+import React, { createContext, useEffect, useState } from 'react'
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import NavBar from './Components/NavBar/NavBar';
 import Footer from './Components/NavBar/Footer';
 import LandingPage from './Components/Home/LandingPage';
-import Product from './Components/products/Products';
-import { About } from './Components/about/About.jsx';
-const App = () => {
-  return (
+import FavList from './Components/favList/FavList'
+import Products from './Components/products/Products'
+import Profile from './Components/artist/Profile'
+import SignIn from './Components/user/SignIn'
+import SignUp from './Components/user/SignUp'
 
+
+
+import axios from 'axios';
+import Statis from './Components/statis/Statis';
+ export  const userContext = createContext()
+
+const App = () => {
+  const [view , setView] = useState(false)
+const [currentUser ,setCurrentUser] = useState(JSON.parse(localStorage.getItem("user")))
+const [likedProducts, setLikedProducts] = useState([]);
+
+const addToFavorites = (product) => {
+  setLikedProducts([...likedProducts, product]);
+};
+
+const fetchArtistData =()=>{
+  axios.get(`http://localhost:3000/api/artist/Profile/${currentUser.email}`).then((res) => setCurrentUser(res.data[0])).catch((err) => console.log(err))
+}
+
+console.log(currentUser);
+useEffect(()=> {
+  
+  if (window.location.pathname === '/SignIn' || window.location.pathname === '/SignUp') setView(true)
+  if(localStorage.length) {
+    fetchArtistData()
+  }
+},[])
+
+  return (
+    
     <Router>
-        <NavBar/>   
+      <userContext.Provider value={currentUser} >
+       { !view  ? (
+         <NavBar />
+         ) : null}   
+        {/* <NavBar/> */}
       <Routes>
         <Route path='/' element={<LandingPage/>}/>
-        <Route path='/PeronalCollection'/>
-        <Route path='/Drops' element={<Product/>}/>
-        <Route path='Profile'/>
-        <Route path='SignIn'/>
-        <Route path='SignUp'/>
-        <Route path='aboutus'  element={<About/>}/>
-        <Route path='/stats'/>
+        <Route
+            path="/PeronalCollection"
+            element={<FavList likedProducts={likedProducts} />}
+          />
+        <Route
+            path="/Drops"
+            element={<Products addToFavorites={addToFavorites} />}
+          />
+        <Route path='/Profile' element={<Profile/>}/>
+        <Route path="/SignIn" element={<SignIn />} />
+          <Route path="/SignUp" element={<SignUp/>} />
+        <Route path='/Aboutus'/>
+
+        <Route path='/Statis' element={<Statis/>}/>
+
       </Routes>
-      <Footer/>
+      {!view ? (
+        <Footer />
+        ) : null}  
+      {/* <Footer/> */}
+        </userContext.Provider>
     </Router>
 
   )
+
 
 }
 
