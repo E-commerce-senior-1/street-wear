@@ -78,10 +78,10 @@ export const About = () => {
       </div>
       <br />
       <div className="w-96 h-96 relative  justify-center">
-  <img className="w-80 h-96 left-[900px] top-[50px] absolute rounded-lg" src="https://media.gqmagazine.fr/photos/64551119ce0c708b2278c458/4:3/w_5120,h_3840,c_limit/chris-henry-tV8yaU09t7w-unsplash.jpg" />
-  <img className="w-80 h-96 left-[500px] top-[50px] absolute rounded-lg shadow" src="      https://decoglam.net/storage/images/image?remote=https%3A%2F%2Fdecoglam.net%2FWebRoot%2FStore20%2FShops%2F57b2465e-10e3-4ede-a8d1-6ede59d24921%2F5EA7%2FFEAF%2F8768%2FC8A6%2FD03D%2F0A48%2F3549%2F35C5%2Fstickers-off-white-logo.jpg&shop=57b2465e-10e3-4ede-a8d1-6ede59d24921
+  <img className="w-80 h-96 left-[800px] top-[50px] absolute rounded-lg" src="https://media.gqmagazine.fr/photos/64551119ce0c708b2278c458/4:3/w_5120,h_3840,c_limit/chris-henry-tV8yaU09t7w-unsplash.jpg" />
+  <img className="w-80 h-96 left-[400px] top-[50px] absolute rounded-lg shadow" src="      https://decoglam.net/storage/images/image?remote=https%3A%2F%2Fdecoglam.net%2FWebRoot%2FStore20%2FShops%2F57b2465e-10e3-4ede-a8d1-6ede59d24921%2F5EA7%2FFEAF%2F8768%2FC8A6%2FD03D%2F0A48%2F3549%2F35C5%2Fstickers-off-white-logo.jpg&shop=57b2465e-10e3-4ede-a8d1-6ede59d24921
 " />
-  <img className="w-80 h-96 left-[700px] top-[25px] absolute rounded-lg shadow" src="https://cdn.shopify.com/s/files/1/0272/9059/9521/files/off-white-sweatshirt-hoodie-photography-shooting.jpg?v=1583596666" />
+  <img className="w-80 h-96 left-[600px] top-[25px] absolute rounded-lg shadow" src="https://cdn.shopify.com/s/files/1/0272/9059/9521/files/off-white-sweatshirt-hoodie-photography-shooting.jpg?v=1583596666" />
 </div>
 <br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br />
 <div className="mt-[-200px] mr-[150px] text-center text-gray-800 text-4xl font-mono font-['SF Pro Display'] leading-[71px] tracking-wide">
