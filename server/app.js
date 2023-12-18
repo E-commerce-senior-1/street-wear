@@ -68,8 +68,8 @@ app.use("/api/artist" , artistRoutes)
 
 
 
-
-
+const postsRoutes = require("./route/posts.js")
+app.use("/api/posts" , postsRoutes)
 
 
 
