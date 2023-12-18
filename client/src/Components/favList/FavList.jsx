@@ -1,66 +1,44 @@
-// const favlist =()=>{
-//   return(
-//     <div>
-// <div className="w-3/4 p-4 ">
-//         <h2 className="text-3xl font-bold mb-6">Product Cart</h2>
-//         <div
-//           className={mb-4 ${
-//             isCartHovered
-//               ? "bg-white"
-//               : "bg-gradient-to-r from-purple-500 via-purple-600 to-blue-500"
-//           } }
-//           onMouseEnter={() => setIsCartHovered(true)}
-//           onMouseLeave={() => setIsCartHovered(false)}
-//         ></div>
-//         <div>
-//           {!selectedCategory &&
-//             !filteredProducts.length &&
-//             ${products.length} items}
-//           {selectedCategory && in ${selectedCategory}}
-//           {filteredProducts.length > 0 &&  | ${filteredProducts.length} items}
-//         </div>
+import React from "react";
+import products from "../products/Products"
 
-//         <br />
-//         <br />
-//         <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-8">
-//           {(selectedCategory || filteredProducts.length > 0
-//             ? filteredProducts
-//             : products
-//           ).map((product) => (
-//             <div
-//               key={product.id}
-//               className={p-4 rounded-md shadow-md transition-transform transform hover:bg-transparent hover:scale-105 hover:opacity-80}
-//             >
-//               <img
-//                 src={product.picture}
-//                 alt={product.name}
-//                 className="w-full h-24 object-cover mb-2 rounded-md"
-//               />
-//               <div className="text-base font-semibold mb-1">
-// alt={product.name}
-//                 className="w-full h-24 object-cover mb-2 rounded-md"
-//               />
-//               <div className="text-base font-semibold mb-1">{product.name}</div>
-//               <div className="text-gray-500 mb-1">{product.category}</div>
-//               <div className="text-sm font-bold text-green-600">
-//                 ${product.price}
-//               </div>
+const FavList = ({ likedProducts }) => {
 
-//               <div className="flex items-center">
-//                 <div className="mr-2 " onClick={()=>{setLike(!like) }}>
-//                   {like ?< FcLikePlaceholder  /> : <FcLike />}
-//                 </div>
-//                 <button className="mt-2 ml-2 bg-green-500 hover:bg-green-600 text-white px-2 py-1 rounded-md self-center">
-//                   Buy Now
-//                 </button>
-//               </div>
-//             </div>
-//           ))}
-//         </div>
-//       </div>
-//     </div>
-//   );
-//     </div>
-//   )
-// }
-// export default favlist;
+  if (!likedProducts) {
+    return null; 
+  }
+
+  return (
+    <div className="text-white text-center text-3xl font-extrabold leading-[81px] tracking-wider max-w-[356px]">
+      PERSONAL COLLECTION
+      <div className="mt-16 max-md:max-w-full max-md:mt-10 max-md:pr-5">
+        <div className="shadow-sm bg-white bg-opacity-10 flex w-full grow flex-col items-stretch mx-auto p-5 rounded-lg max-md:mt-3">
+          {likedProducts.length === 0 && <p>No liked products yet.</p>}
+          {likedProducts.map((product) => (
+            <div key={product.id}>
+              <img
+                className="aspect-[0.89] object-contain object-center w-full overflow-hidden"
+                src={product.picture}
+                alt={product.name}
+              />
+              <div>
+                <div className="flex justify-between gap-5 mt-5 px-0.5 items-start">
+                  <div className="flex flex-col items-stretch">
+                    <div className="text-white text-opacity-50 text-base font-medium whitespace-nowrap">
+                      {product.category}
+                    </div>
+                  </div>
+                </div>
+
+                <div className="text-white text-base font-bold whitespace-nowrap mt-6">
+                  {product.name}
+                </div> 
+              </div>
+            </div>
+          ))}
+        </div>
+      </div>
+    </div>
+  );
+};
+
+export default FavList;
