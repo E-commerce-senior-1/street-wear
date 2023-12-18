@@ -14,7 +14,7 @@ const EmailEdit = ({editPopUp , closePopUp}) => {
   if (editPopUp !== true) return null
 
 const editEmail = () => {
-  axios.put(`http://localhost:3000/api/artist/Profile/Bio/${currentUser.id}` , {email}).then((res) => console.log("updated")).then(()=> window.location.reload()).catch((err)=> console.log(err))
+  axios.put(`http://localhost:3000/api/artist/Profile/Email/${currentUser.id}` , {email}).then((res) => console.log("updated")).then(()=> window.location.reload()).catch((err)=> console.log(err))
 }
 
   return (

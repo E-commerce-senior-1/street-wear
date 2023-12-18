@@ -10,7 +10,6 @@ let arr = [1,2,2,3,5]
 const Profile = () => {
   const [posts , setPosts] = useState([])
   const currentUser = useContext(userContext)
-  console.log(currentUser.id)
   
   const getPosts = () => {
     axios.get(`http://localhost:3000/api/posts/Profile/Posts/${currentUser.id}`).then((res) => setPosts(res.data)).catch((err) => console.log(err))

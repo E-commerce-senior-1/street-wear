@@ -10,6 +10,7 @@ import {
 import { auth } from "./firebase-config";
 import { signInWithPopup } from "firebase/auth";
 import { GoogleAuthProvider, FacebookAuthProvider } from "firebase/auth";
+import { Link } from "react-router-dom";
 
 
 const SignIn = () => {
@@ -100,10 +101,10 @@ const SignIn = () => {
                 </div>
                 <div className="text-indigo-500 text-lg tracking-wide self-stretch mt-16 max-md:max-w-full max-md:mt-10">
                   <span className="text-white">New user?</span>
-                  <span className="font-medium text-indigo-500">
+                  <Link to={"/SignUp"} className="font-medium text-indigo-500">
                     {" "}
                     Create an account
-                  </span>
+                  </Link >
                 </div>
                 <div className="relative max-w-xs">
                   <svg
@@ -183,12 +184,12 @@ const SignIn = () => {
                   />
                 </div>
 
-                <button
+                <Link to={"/"}
                   onClick={login}
                   className="text-white text-base whitespace-nowrap justify-center items-stretch bg-[linear-gradient(214deg,#B75CFF_6.04%,#671AE4_92.95%)] mt-6 px-5 py-1 rounded-[121px] self-end"
                 >
                   Login
-                </button>
+                </Link>
 
                 <div className="text-white text-lg tracking-wide self-center whitespace-nowrap mt-1 max-md:mt-4">
                   Or

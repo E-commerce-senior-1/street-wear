@@ -19,6 +19,7 @@ import Statis from './Components/statis/Statis.jsx';
 
 
 import axios from 'axios';
+import { About } from './Components/about/About.jsx';
 
 
 
@@ -29,6 +30,7 @@ import axios from 'axios';
 const App = () => {
   const [view , setView] = useState(false)
 const [currentUser ,setCurrentUser] = useState(JSON.parse(localStorage.getItem("user")))
+
 const [likedProducts, setLikedProducts] = useState([]);
 
 const addToFavorites = (product) => {
@@ -36,10 +38,10 @@ const addToFavorites = (product) => {
 };
 
 const fetchArtistData =()=>{
-  axios.get(`http://localhost:3000/api/artist/Profile/${currentUser.email}`).then((res) => setCurrentUser(res.data[0])).catch((err) => console.log(err))
+  axios.get(`http://localhost:3000/api/artist/Profile/${currentUser.user.email}`).then((res) => setCurrentUser(res.data[0])).catch((err) => console.log(err))
 }
 
-console.log(currentUser);
+
 useEffect(()=> {
   
   if (window.location.pathname === '/SignIn' || window.location.pathname === '/SignUp') setView(true)
@@ -72,8 +74,8 @@ useEffect(()=> {
         <Route path='/Profile' element={<Profile/>}/>
         <Route path="/SignIn" element={<SignIn />} />
           <Route path="/SignUp" element={<SignUp/>} />
-        <Route path='/Aboutus'/>
-
+        <Route path='/Aboutus' element={<About/>}/>
+ 
         <Route path='/Statis' element={<Statis/>}/>
 
       </Routes>

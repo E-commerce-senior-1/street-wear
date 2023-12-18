@@ -16,7 +16,7 @@ export const About = () => {
         <div className="text-center text-white text-6xl font-extrabold font-['SF Pro Display'] leading-[81px] tracking-wide">
           Who we are
         </div>
-        <div className="text-white text-opacity-50 text-xl font-medium font-medium font-['SFProDisplay'] leading-9 text-center">
+        <div className="text-white text-opacity-50 text-xl  font-medium font-['SFProDisplay'] leading-9 text-center">
           StreetWear Haven, means more than an online store. We're a cool group
           of people who love street fashion. <br /> We're all about quality and
           staying up-to-date with what's hot. <br /> We're all about being real
@@ -97,25 +97,25 @@ export const About = () => {
       </div>
       <div class="flex justify-center space-x-4">
   <img
-    class="w-60 h-86 rounded transition-transform transform hover:scale-110 filter hover:brightness-110"
-    src="https://upload.wikimedia.org/wikipedia/commons/thumb/6/61/KUNDARA_JOHNY.jpg/640px-KUNDARA_JOHNY.jpg"
+    class="w-50 h-80 rounded transition-transform transform hover:scale-110 filter hover:brightness-110"
+    src="https://media.discordapp.net/attachments/1183822766143721482/1186273589410938951/IMG_4613.png?ex=6592a65f&is=6580315f&hm=02c531beed27acfef6cffa7c43025d767699d881bd4e28ebe95cc6d1093cdd37&=&format=webp&quality=lossless&width=496&height=662"
  
   />
   <img
-    class="w-60 h-86 rounded transition-transform transform hover:scale-110 filter hover:brightness-110"
-    src="https://upload.wikimedia.org/wikipedia/commons/thumb/6/61/KUNDARA_JOHNY.jpg/640px-KUNDARA_JOHNY.jpg"
+    class="w-60 h-80 rounded transition-transform transform hover:scale-110 filter hover:brightness-110"
+    src="https://scontent.ftun7-1.fna.fbcdn.net/v/t39.30808-6/310062341_5646326968793591_844162573503166586_n.jpg?_nc_cat=111&ccb=1-7&_nc_sid=efb6e6&_nc_ohc=EqThCy1SIbkAX8ULDkw&_nc_ht=scontent.ftun7-1.fna&oh=00_AfALSbjyWbPDmuNm7x22rLHPwRtLg0nZgwutkjv5MkK3dQ&oe=6584C2BE"
   />
   <img
-    class="w-60 h-86 rounded transition-transform transform hover:scale-110 filter hover:brightness-110"
-    src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSCdp21vG2U3hJ7BfQ5c8ijOiufBGKG2bRFDw&usqp=CAU"
+    class="w-60 h-80 rounded transition-transform transform hover:scale-110 filter hover:brightness-110"
+    src="https://media.discordapp.net/attachments/1183822766143721482/1186259340965969920/409430057_665648919103193_229707522078181122_n.jpg?ex=6592991a&is=6580241a&hm=730daa341dd699c37c3ff0c59c8c489e0dae83b96a4ebc92e25f6152494d446a&=&format=webp&width=662&height=662"
   />
   <img
-    class="w-60 h-86 rounded transition-transform transform hover:scale-110 filter hover:brightness-110"
-    src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSCdp21vG2U3hJ7BfQ5c8ijOiufBGKG2bRFDw&usqp=CAU"
+    class="w-60 h-80 rounded transition-transform transform hover:scale-110 filter hover:brightness-110"
+    src="https://media.discordapp.net/attachments/1183822766143721482/1186274893046743170/yen.jpg?ex=6592a796&is=65803296&hm=6aba2a750eb622aeac50e5aeae882ba67d3e77715401e57b74ec13c5985c863a&=&format=webp&width=453&height=453"
   />
   <img
-    class="w-60 h-86 rounded transition-transform transform hover:scale-110 filter hover:brightness-110"
-    src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSCdp21vG2U3hJ7BfQ5c8ijOiufBGKG2bRFDw&usqp=CAU"
+    class="w-60 h-80 rounded transition-transform transform hover:scale-110 filter hover:brightness-110"
+    src="https://firebasestorage.googleapis.com/v0/b/e-commerce-aa77a.appspot.com/o/Posts%2F15%2Fimage_2023-12-18_130445086.png?alt=media&token=eb756bae-643b-4b2b-8147-ad460a888242"
   />
   
 </div>

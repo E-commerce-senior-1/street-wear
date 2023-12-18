@@ -9,26 +9,29 @@ const ShoppingCart = () => {
   const [cartVisible, setCartVisible] = useState(false);
 
   useEffect(() => {
-    // fetchData();
-    getone ()
+    fetchData();
+    // getone ()
   }, []);
   console.log(window.localStorage);
-  // const fetchData = async (id) => {
-  //   try {
-  //     const response = await axios.get(`http://localhost:3000/api/cart/get`);
-  //     console.log(response, "list cart");
-  //     setCartItems(response.data,'ffff');
-  //   } catch (error) {
-  //     console.error("Error fetching data:", error);
-  //   }
-  // };
+  const fetchData = async (id) => {
+    try {
+      const response = await axios.get(`
+      http://localhost:3000/api/cart/getone/1
+      `);
+      console.log(response, "list cart");
+      setCartItems(response.data,'ffff');
+    } catch (error) {
+      console.error("Error fetching data:", error);
+    }
+  };
 
   const deleteArticle = async (idusers, idproducts) => {
+    console.log("Deleting article:", idusers, idproducts);
     axios
       .delete(`http://localhost:3000/api/cart/delete/${idusers}/${idproducts}`)
       .then((response) => {
         console.log("Deleted successfully!");
-        // fetchData();
+        fetchData();
       })
       .catch((error) => {
         console.error("Error deleting article:", error);
@@ -39,7 +42,7 @@ const ShoppingCart = () => {
     axios
       .get(`http://localhost:3000/api/cart/getone/222`)
       .then((response) => {
-        setCartItems(response.data);
+        console.log(response.data,'gggggggggg');
       })
       .catch((error) => {
         console.error("Error article:");
@@ -117,11 +120,11 @@ const ShoppingCart = () => {
               </div>
 
               <button
-                onClick={() => deleteArticle(ele.idusers, ele.idproducts)}
-                class="bg-red-500 hover:bg-red-400 text-white font-bold py-2 px-4 border-b-4 border-red-700 hover:border-red-500 rounded"
-              >
-                Delete
-              </button>
+  onClick={() => deleteArticle(ele.idusers, ele.idproducts)}
+  class="bg-red-500 hover:bg-red-400 text-white font-bold py-2 px-4 border-b-4 border-red-700 hover:border-red-500 rounded"
+>
+  Delete
+</button>
             </div>
           ))}
           <button class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded">
