@@ -23,7 +23,7 @@ const Products = () => {
     .then(response => {
         setUpdated(response.data)
         console.log(response.data);
-
+        window.location.reload();
         console.log("Item added to the cart successfully");
     
       })
@@ -42,8 +42,8 @@ const Products = () => {
       const apiUrl = "http://localhost:3000/api/product/all";
       const response = await axios.get(apiUrl);
       setProducts(response.data);
-      
     } catch (error) {
+      
       console.error("Error fetching data:", error);
     }
   };
@@ -196,9 +196,9 @@ const Products = () => {
               <div className="flex items-center">
                 <div
                   className="mr-4 "
-                  onClick={ 
-                    addFavelist
-                  }
+          //         onClick={ 
+          
+          //         }
                 >
                   {like ? <FcLikePlaceholder /> : <FcLike />}
                 </div>

@@ -1,6 +1,6 @@
 import React, { useState } from 'react'
 import NameEdit from './NameEdit'
-import UsernameEdit from './UsernameEdit'
+import EmailEdit from './EmailEdit'
 import BioEdit from './BioEdit'
 
 const PopUp = ({ openPopUp, closePopUp }) => {
@@ -40,9 +40,9 @@ const PopUp = ({ openPopUp, closePopUp }) => {
               setEditPopUp(true)}}
             className='font-semibold py-3 text-center text-[#ebebeb] text-xl cursor-pointer hover:bg-[#ffffff1a]' style={{ fontFamily: "'SF Pro Display Regular', Helvetica, sans-serif" }}
             >
-              Username
+              Email
           </h2>
-          {popUp === "Username" && <UsernameEdit editPopUp={editPopUp} closePopUp={HandleRemovePopUp}/>}
+          {popUp === "Username" && <EmailEdit editPopUp={editPopUp} closePopUp={HandleRemovePopUp}/>}
           <hr />
           <h2
             onClick={() => { setPopUp("Bio")

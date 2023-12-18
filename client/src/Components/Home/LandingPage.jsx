@@ -4,6 +4,7 @@ import { Link } from "react-router-dom";
 const LandingPage = () => {
   return (
     <>
+    {/* main and creators buttons */}
       <div className="flex justify-center pt-[104px] ">
         <div className="flex w-full   justify-around">
           <div className="flex items-center justify-center gap-4 p-4 bg-purple-600 rounded-full w-[164px] h-[45px]">
@@ -18,9 +19,10 @@ const LandingPage = () => {
           </div>
         </div>
       </div>
-
+{/* text and images */}
       <div className="mx-auto mt-8 flex flex-col items-center justify-evenly pt-20 gap-20 ">
         <div className="flex justify-evenly "> 
+        {/* text */}
           <div className="w-full text-white text-6xl font-extrabold font-['SF Pro Display'] leading-[81px] tracking-wide">
             Clothes are the
             <br />
@@ -29,8 +31,27 @@ const LandingPage = () => {
               Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nunc
               vulputate libero et velit.
             </div>
+            <div className=" ">   
+          <div className="w-fit h-11 px-5 py-2.5 bg-gradient-to-bl from-purple-500 to-violet-700 rounded-lg  gap-2.5 inline-flex mr-[50px]    ">
+            <Link
+              to={"/Drops"}
+              className="text-white text-xl font-medium font-['Poppins']"
+            >
+              Explore Now
+            </Link>
           </div>
-  {/*  */}
+
+          <div className="w-fit h-11 px-5 py-2.5 bg-white bg-opacity-10 rounded-lg justify-center items-center gap-2.5 inline-flex">
+            <Link
+              to={""}
+              className="text-white text-xl font-medium font-['Poppins']"
+            >
+              Create
+            </Link>
+          </div>
+        </div>
+          </div>
+  {/* images */}
           <div
             style={{
               "grid-template-columns":
@@ -42,7 +63,7 @@ const LandingPage = () => {
               className="w-48 h-56  rounded-lg"
               src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSWTStMfvc1_3lm43YOoCXGaWLl5007Vkd4O9mN9jbgaM4wq0vHDyp8o5yqCJMWpOfGfJI&usqp=CAU"
               alt=""
-            />{" "}
+            />
             <img
               className="w-48  h-56  row-start-2 rounded-lg"
               src="https://i.ebayimg.com/images/g/JesAAOSwtqxjNFaR/s-l1600.jpg"
@@ -61,27 +82,8 @@ const LandingPage = () => {
             />
           </div>
         </div>
-{/* buttons */}
-        <div className="flex items-center">   
-          <div className="w-fit h-11 px-5 py-2.5 bg-gradient-to-bl from-purple-500 to-violet-700 rounded-lg justify-center items-center gap-2.5 inline-flex  mr-[10px]">
-            <Link
-              to={"/Drops"}
-              className="text-white text-xl font-medium font-['Poppins']"
-            >
-              Explore Now
-            </Link>
-          </div>
 
-          <div className="w-fit h-11 px-5 py-2.5 bg-white bg-opacity-10 rounded-lg justify-center items-center gap-2.5 inline-flex">
-            <Link
-              to={""}
-              className="text-white text-xl font-medium font-['Poppins']"
-            >
-              Create
-            </Link>
-          </div>
-        </div>
-{/* stats */}
+        {/* stats */}
         <div className="w-full h-20 flex justify-evenly mt-8">
           <div className="w-16 h-20">
             <h1 className="text-white text-3xl font-bold font-['Poppins']">
@@ -109,6 +111,33 @@ const LandingPage = () => {
           </div>
         </div>
       </div>
+        <div>
+        <div className="max-w-[994px]">
+      <div className="gap-5 flex max-md:flex-col max-md:items-stretch max-md:gap-0">
+        <div className="flex flex-col items-stretch w-[37%] max-md:w-full max-md:ml-0">
+          <img
+            loading="lazy"
+            src="https://cdn.builder.io/api/v1/image/assets/TEMP/19b6d30715d60f263ccfaea3aecfe473c66d4a4a93d5e721e1bb60fec7353e0a?"
+            className="aspect-[1.39] object-contain object-center w-[143px] overflow-hidden shrink-0 max-w-full grow max-md:mt-10"
+          />
+        </div>
+        <div className="flex flex-col items-stretch w-[39%] ml-5 max-md:w-full max-md:ml-0">
+          <img
+            loading="lazy"
+            src="https://cdn.builder.io/api/v1/image/assets/TEMP/4777d93cd948a6e64fac875e43e1018157312b0a8f10213a81f2745402535158?"
+            className="aspect-[1.79] object-contain object-center w-[163px] overflow-hidden shrink-0 max-w-full max-md:mt-10"
+          />
+        </div>
+        <div className="flex flex-col items-stretch w-[24%] ml-5 max-md:w-full max-md:ml-0">
+          <img
+            loading="lazy"
+            src="https://cdn.builder.io/api/v1/image/assets/TEMP/a2e391c6974916f5e4e959b8d8b286a07261f7f3a8f4caa044b1fe0d006fa6b0?"
+            className="aspect-[2.07] object-contain object-center w-[188px] overflow-hidden shrink-0 max-w-full max-md:mt-10"
+          />
+        </div>
+      </div>
+    </div>
+        </div>
     </>
   );
 };

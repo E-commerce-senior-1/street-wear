@@ -9,28 +9,23 @@ const ShoppingCart = () => {
   const [cartVisible, setCartVisible] = useState(false);
 
   useEffect(() => {
-    fetchData();
+    // fetchData();
     getone ()
-    
   }, []);
-console.log(window.localStorage);
-  const fetchData = async (id) => {
-    try {
-      const response = await axios.get(
-        `http://localhost:3000/api/cart/getone/${idprod}`
-      );
-      console.log(response, "list cart");
-      setCartItems(response.data);
-    } catch (error) {
-      console.error("Error fetching data:", error);
-    }
-  };
+  console.log(window.localStorage);
+  // const fetchData = async (id) => {
+  //   try {
+  //     const response = await axios.get(`http://localhost:3000/api/cart/get`);
+  //     console.log(response, "list cart");
+  //     setCartItems(response.data,'ffff');
+  //   } catch (error) {
+  //     console.error("Error fetching data:", error);
+  //   }
+  // };
 
-
-
-  const deleteArticle = async (iduser, idprod) => {
+  const deleteArticle = async (idusers, idproducts) => {
     axios
-      .delete(`http://localhost:3000/api/cart/delete/${iduser}/${idprod}`)
+      .delete(`http://localhost:3000/api/cart/delete/${idusers}/${idproducts}`)
       .then((response) => {
         console.log("Deleted successfully!");
         // fetchData();
@@ -42,7 +37,7 @@ console.log(window.localStorage);
 
   const getone = (id) => {
     axios
-      .get(`http://localhost:3000/api/cart/getone/117`)
+      .get(`http://localhost:3000/api/cart/getone/222`)
       .then((response) => {
         setCartItems(response.data);
       })
@@ -51,10 +46,8 @@ console.log(window.localStorage);
       });
   };
 
-  const getTotalPrice = () => {
-    return cartItems
-      .reduce((total, ele) => total + ele.price * quantity, 0)
-      .toFixed(2);
+  const getTotalPrice = (ele) => {
+    return (ele.price * quantity).toFixed(2);
   };
 
   const incrementQuantity = () => {
@@ -82,7 +75,7 @@ console.log(window.localStorage);
 
       {cartVisible && (
         <div className="fixed top-30 right-4 bg-white p-4 rounded shadow-md w-80">
-          <h2 className="text-xl font-semibold mb-4">Shopping Cart</h2>
+          <h2 className="text-xl font-semibold mb-4"> Cart</h2>
 
           {cartItems.map((ele, i) => (
             <div
@@ -90,47 +83,50 @@ console.log(window.localStorage);
               className="flex items-center justify-between mb-4 border-b pb-2"
             >
               <div>
-                <img
-                  src={ele.picture}
-                  alt="Product Image"
-                  className="w-16 h-16 rounded-full"
-                />
+                <div className="flex items-center justify-between mb-4">
+                  <img
+                    src={ele.picture}
+                    alt="Product Image"
+                    className="w-16 h-16 rounded-full"
+                  />
+                </div>
+                <div className="flex flex-col ml-4">
+                  <p className="font-semibold">{ele.name}</p>
+                  <p className="text-gray-500">
+                    ${(ele.price * quantity).toFixed(2)}
+                  </p>
+                </div>
+                <span className="text-gray-600">Total:</span>
+                <span className="text-xl font-bold">${getTotalPrice(ele)}</span>
               </div>
-              <div className="flex flex-col ml-4">
-                <p className="font-semibold">{ele.name}</p>
-                <p className="text-gray-500">
-                  ${(ele.price * quantity).toFixed(2)}
-                </p>
+
+              <div className="flex items-center">
+                <button
+                  className="bg-blue-500 text-white px-3 py-1 rounded mr-2"
+                  onClick={decrementQuantity}
+                >
+                  -
+                </button>
+                <span className="text-xl font-bold">{quantity}</span>
+                <button
+                  className="bg-blue-500 text-white px-3 py-1 rounded ml-2"
+                  onClick={incrementQuantity}
+                >
+                  +
+                </button>
               </div>
+
               <button
-                onClick={() => deleteArticle(ele.iduser, ele.idprod)}
-                className="text-red-500 hover:underline ml-4"
+                onClick={() => deleteArticle(ele.idusers, ele.idproducts)}
+                class="bg-red-500 hover:bg-red-400 text-white font-bold py-2 px-4 border-b-4 border-red-700 hover:border-red-500 rounded"
               >
                 Delete
               </button>
             </div>
           ))}
-
-          <div className="flex items-center justify-between mb-4">
-            <span className="text-gray-600">Total:</span>
-            <span className="text-xl font-bold">${getTotalPrice()}</span>
-          </div>
-
-          <div className="flex items-center">
-            <button
-              className="bg-blue-500 text-white px-3 py-1 rounded mr-2"
-              onClick={decrementQuantity}
-            >
-              -
-            </button>
-            <span className="text-xl font-bold">{quantity}</span>
-            <button
-              className="bg-blue-500 text-white px-3 py-1 rounded ml-2"
-              onClick={incrementQuantity}
-            >
-              +
-            </button>
-          </div>
+          <button class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded">
+            commande
+          </button>
         </div>
       )}
     </div>
