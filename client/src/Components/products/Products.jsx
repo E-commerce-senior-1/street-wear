@@ -404,6 +404,7 @@ import { BsFilterLeft } from "react-icons/bs";
 import SlideBar from "./SlideBar";
 import { FcLikePlaceholder } from "react-icons/fc";
 import { FcLike } from "react-icons/fc";
+import { MdOutlineWhatshot } from "react-icons/md";
 
 const Products = ({ addToFavorites }) => {
   const [products, setProducts] = useState([]);
@@ -420,11 +421,20 @@ const Products = ({ addToFavorites }) => {
     fetchData();
   }, []);
 
+  useEffect(() => {
+    const initialLikes = {};
+    products.forEach((product) => {
+      initialLikes[product.id] = false;
+    });
+    setLikes(initialLikes);
+  }, [products]);
+
   const fetchData = async () => {
     try {
       const apiUrl = "http://localhost:3000/api/product/all";
       const response = await axios.get(apiUrl);
       setProducts(response.data);
+      console.log(response.data);
     } catch (error) {
       console.error("Error fetching data:", error);
     }
@@ -435,10 +445,6 @@ const Products = ({ addToFavorites }) => {
     setSelectedCategory(null);
   };
 
-  const toggleOptions = () => {
-    setShowOptions(!showOptions);
-  };
-
   const filter = (cat) => {
     const res = products.filter((current) => current.category === cat);
     setFilteredProducts(res);
@@ -446,11 +452,18 @@ const Products = ({ addToFavorites }) => {
     setShowOptions(false);
   };
 
-  const Newrelease = () => {
-    const res = products.filter((current) => current.isNew);
-    setFilteredProducts(res);
+  const showNewReleases = () => {
+    const newReleases = products.filter((current) => (current.isNew));
+  
+    // Update the state correctly
+    setFilteredProducts(newReleases);
     setSelectedCategory(null);
     setShowOptions(false);
+    setDisplayNewReleaseIcon(true);
+  };
+
+  const toggleCategoriesOptions = () => {
+    setShowOptions((prevShowOptions) => !prevShowOptions);
   };
 
   return (
@@ -536,10 +549,10 @@ const Products = ({ addToFavorites }) => {
           <div className="flex items-stretch justify-between gap-5 mt-12 mb-[724px] pr-4 max-md:my-10"></div>
         </div>
       </div>
+      
 
-      {/* Product Grid with white background */}
-      <div className="w-3/4 p-4 ">
-        <h2 className="text-3xl font-bold mb-6">Product Cart</h2>
+      {/* Product Grid */}
+      <div className="w-3/4 p-4 pl-[60px]">
         <div
           className={`mb-4 ${
             isCartHovered
@@ -549,51 +562,56 @@ const Products = ({ addToFavorites }) => {
           onMouseEnter={() => setIsCartHovered(true)}
           onMouseLeave={() => setIsCartHovered(false)}
         ></div>
-        <div>
+        <div className=" font-semibold text-pink-100">
           {!selectedCategory &&
             !filteredProducts.length &&
-            `${products.length} items`}
-          {selectedCategory && `in ${selectedCategory}`}
+            `|${products.length} items`}
           {filteredProducts.length > 0 && ` | ${filteredProducts.length} items`}
         </div>
 
-        <br />
         <br />
         <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-8">
           {(selectedCategory || filteredProducts.length > 0
             ? filteredProducts
             : products
-          ).map((product) => (
-            <div
+            ).map((product) => (
+              <div
               key={product.id}
               className={`p-2 rounded-md shadow-md transition-transform transform bg-[#ffffff1a] hover:bg-transparent hover:scale-105 hover:opacity-80`}
-            >
+              >
+    
               <img
-                src={product.picture}
+              src={product.picture}
                 alt={product.name}
                 className="w-full h-100 object-cover mb-2 rounded-md"
               />
-              <div className="text-xs font-medium font-['Poppins'] text-gray-500 mb-1">
+              <div className="text-sm font-medium font-['Poppins'] text-gray-500 mb-1 ">
                 {product.category}
-              </div>
-              <div className="flex">
-                <div className="text-sm text-white font-extralight mb-1 mr-20">
-                  {product.name}
-                </div>
-                <div className="text-sm font-bold text-green-600">
-                  ${product.price}
-                </div>
               </div>
 
               <div className="flex items-center">
+                <div className="text-sm text-white font-extralight mb-2">
+                  {product.name}
+                </div>
+                <div className="flex-grow"></div>
+                <div className="text-sm font-bold text-green-600 mr-10">
+                  ${product.price}
+                </div>
+              </div>
+              
+              <div className="absolute top-2 right-2 text-yellow-400 mt-2">
+  {product.isNew && <MdOutlineWhatshot className="text-2xl" />}
+</div>
+
+              <div className="flex items-center">
                 <div
-                  className="mr-4 "
+                  className="mr-6"
                   onClick={() => {
                     setLike(!like);
                     addToFavorites(product); // Pass the product to addToFavorites
                   }}
                 >
-                  {like ? <FcLikePlaceholder /> : <FcLike />}
+                  {likes[product.id] ? <FcLikePlaceholder /> : <FcLike />}
                 </div>
                 <button
                   className="mt-2 ml-2 bg-green-500 hover:bg-green-600 text-white px-4 py-1 rounded-md self-center"
