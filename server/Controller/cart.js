@@ -56,17 +56,18 @@ module.exports = {
 
   getArticle: async (req, res) => {
     try {
-      const articleId = req.params.id;
+      const userId = req.params.id;
       const article = await db.products.findAll({
         include: {
           model: db.cart,
-          where: { id: articleId },
+          where: { idusers: userId },
         },
       });
       if (!article) {
         return res.status(404).json({ error: "Article not found" });
       }
-      res.status(200).json(article);
+      console.log(article);
+      res.status(200).send(article);
     } catch (err) {
       console.error(err);
       res.status(500).json({ error: "Internal Server Error" });

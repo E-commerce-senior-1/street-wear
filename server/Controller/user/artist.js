@@ -43,8 +43,7 @@ updateName : (req , res) => {
     let {idartist} = req.params
     try {
         if(!name) res.status(401).send("All inputs are required")
-        const artist = db.artist.findAll({idartist})
-        artist.update({name})
+        db.artist.update({name} , {where : {id :idartist}})
         res.status(200).send("Updated!")
     }catch (err){
         console.log(err)

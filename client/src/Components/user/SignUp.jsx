@@ -4,7 +4,7 @@ import { createUserWithEmailAndPassword } from "firebase/auth";
 
 import { auth } from "./firebase-config";
 
-import { useNavigate } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import axios from "axios";
 
 const SignUp = () => {
@@ -85,9 +85,9 @@ const SignUp = () => {
                     <span className="text-deep_purple-400 text-left font-normal">
                       {" "}
                     </span>
-                    <span className="text-deep_purple-400 text-left">
+                    <Link to={"/SignUp"} className="font-medium text-indigo-500">
                       Sign In
-                    </span>
+                    </Link>
                   </div>
                   <br />
                   <div className="relative max-w-xs">

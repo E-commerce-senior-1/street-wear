@@ -78,40 +78,6 @@ const NavBar = () => {
         </div>
       </div>
 
-      <div className="flex items-center mt-4 md:mt-0  md:ml-4 md:mr-4 ">
-        <ExploreDropDown />
-      </div>
-      <div className="flex items-center mt-4 md:mt-0  md:ml-4 md:mr-4">
-        <Link
-          to={"/PeronalCollection"}
-          className="[font-family:'SF_Pro_Display-Semibold',Helvetica] font-normal text-white text-base md:text-lg tracking-[0] leading-[normal] whitespace-nowrap"
-        >
-          Personal Collection
-        </Link>
-      </div>
-      <div className="flex items-center mt-4 md:mt-0  md:ml-4 md:mr-4">
-        <Link
-          to={"/Drops"}
-          className="[font-family:'SF_Pro_Display-Semibold',Helvetica] font-normal text-white text-base md:text-lg tracking-[0] leading-[normal] whitespace-nowrap"
-        >
-          Drops
-        </Link>
-      </div>
-      <div className="flex items-center mt-4 md:mt-0 md:ml-4 md:mr-4">
-        <Link
-          to={"/Aboutus"}
-          className="[font-family:'SF_Pro_Display-Semibold',Helvetica] font-normal text-white text-base md:text-lg tracking-[0] leading-[normal] whitespace-nowrap"
-        >
-          More
-        </Link>
-      </div>
-      <div>
-        <Cart />
-      </div>
-
-      <div className="flex items-center mt-4 md:mt-0 md:ml-4 md:mr-4">
-        <DropDownProfile />
-      </div>
     </header>
   );
 };

@@ -16,7 +16,7 @@ const FavList = ({ likedProducts }) => {
           {likedProducts.map((product) => (
             <div key={product.id}>
               <img
-                className="aspect-[0.89] object-contain object-center w-full overflow-hidden"
+                className="aspect-[0.89] object-contain object-center w-full overflow-hidden "
                 src={product.picture}
                 alt={product.name}
               />

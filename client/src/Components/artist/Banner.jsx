@@ -98,8 +98,8 @@ const Banner = () => {
   return (
     <>
     <div className='w-6/12'> 
-    <div className='relative'>
-        <div className="w-[39px] h-[39px] p-2.5 bg-indigo-500 rounded-[150px] justify-center items-center gap-2.5 inline-flex absolute top-1 cursor-pointer" onClick={openModal}>
+    <div>
+        <div className="w-[39px] h-[39px] p-2.5 bg-indigo-500 rounded-[150px] justify-center items-center gap-2.5 inline-flex absolute top-[120px] left-[370px] cursor-pointer" onClick={openModal}>
         <MdModeEdit/>
         </div>
         <Modal isOpen={modalIsOpen} onRequestClose={closeModal} contentLabel='Modal 1' className="bg-white">
