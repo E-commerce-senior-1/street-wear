@@ -406,6 +406,8 @@ import { FcLikePlaceholder } from "react-icons/fc";
 import { FcLike } from "react-icons/fc";
 import { MdOutlineWhatshot } from "react-icons/md";
 
+
+
 const Products = ({ addToFavorites }) => {
   const [products, setProducts] = useState([]);
   const [filteredProducts, setFilteredProducts] = useState([]);
@@ -416,10 +418,29 @@ const Products = ({ addToFavorites }) => {
 
   const [favorites, setFavorites] = useState([]);
  
+  const [update,setUpdated] = useState(false);
 
-  useEffect(() => {
-    fetchData();
-  }, []);
+
+// work of Ameur
+  const Addaricle = (  idusers,idproducts ) => {
+    axios.post('http://localhost:3000/api/cart/post', { idusers,idproducts  })
+    .then(response => {
+        setUpdated(response.data)
+        console.log(response.data);
+        window.location.reload();
+        console.log("Item added to the cart successfully");
+    
+      })
+      .catch(error => {
+        console.error(error);
+      });
+  };
+
+  
+// work of Ameur
+
+  
+  
 
   useEffect(() => {
     const initialLikes = {};
@@ -429,6 +450,7 @@ const Products = ({ addToFavorites }) => {
     setLikes(initialLikes);
   }, [products]);
 
+
   const fetchData = async () => {
     try {
       const apiUrl = "http://localhost:3000/api/product/all";
@@ -436,9 +458,13 @@ const Products = ({ addToFavorites }) => {
       setProducts(response.data);
       console.log(response.data);
     } catch (error) {
+      
       console.error("Error fetching data:", error);
     }
   };
+  useEffect(() => {
+    fetchData();
+  }, []);
 
   const showAllProducts = () => {
     setFilteredProducts([]);
@@ -466,6 +492,7 @@ const Products = ({ addToFavorites }) => {
     setShowOptions((prevShowOptions) => !prevShowOptions);
   };
 
+ 
   return (
     <div className="flex min-h-screen">
       {/* Sidebar with white background */}
@@ -551,8 +578,11 @@ const Products = ({ addToFavorites }) => {
       </div>
       
 
-      {/* Product Grid */}
-      <div className="w-3/4 p-4 pl-[60px]">
+
+     
+      <div className="w-3/4 p-4 ">
+        <h2 className="text-3xl font-bold mb-6">Product Cart</h2>
+
         <div
           className={`mb-4 ${
             isCartHovered
@@ -574,8 +604,11 @@ const Products = ({ addToFavorites }) => {
           {(selectedCategory || filteredProducts.length > 0
             ? filteredProducts
             : products
-            ).map((product) => (
-              <div
+
+          ).map((product) => (
+            
+            <div
+
               key={product.id}
               className={`p-2 rounded-md shadow-md transition-transform transform bg-[#ffffff1a] hover:bg-transparent hover:scale-105 hover:opacity-80`}
               >
@@ -614,8 +647,11 @@ const Products = ({ addToFavorites }) => {
                   {likes[product.id] ? <FcLikePlaceholder /> : <FcLike />}
                 </div>
                 <button
+                  onClick={() => Addaricle(1 , product.id )}
+                 
                   className="mt-2 ml-2 bg-green-500 hover:bg-green-600 text-white px-4 py-1 rounded-md self-center"
-                  onClick={() => addToFavorites(product)} // Also add the product to favorites on button click
+                
+                // Also add the product to favorites on button click
                 >
                   Buy Now
                 </button>
