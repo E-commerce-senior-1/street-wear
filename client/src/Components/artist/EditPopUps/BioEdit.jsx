@@ -15,7 +15,7 @@ const BioEdit = ({editPopUp , closePopUp}) => {
   if (editPopUp !== true) return null
 
   const editBio = () => {
-    axios.put(`http://localhost:3000/api/artist/Profile/Bio/${currentUser.id}` , {bio}).then((res) => console.log("updated")).catch((err)=> console.log(err))
+    axios.put(`http://localhost:3000/api/artist/Profile/Bio/${currentUser.id}` , {bio}).then((res) => console.log("updated")).then(()=> window.location.reload()).catch((err)=> console.log(err))
   }
   return (
     <div
