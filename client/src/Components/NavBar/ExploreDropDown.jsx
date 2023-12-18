@@ -12,7 +12,7 @@ const ExploreDropDown = () => {
   return (
     <Menu as="div" className="relative inline-block text-left">
     <div>
-      <Menu.Button className="inline-flex w-full justify-center gap-x-1.5 rounded-md bg-transparent px-3 py-2 text-sm [font-family:'SF_Pro_Display-Semibold',Helvetica] font-normal text-[20.5px]  text-white shadow-sm  ring-inset hover:bg-gray-10 ">
+      <Menu.Button className="inline-flex w-full justify-center gap-x-1.5 rounded-md bg-transparent px-3 py-2  [font-family:'SF_Pro_Display-Semibold',Helvetica] font-normal text-[19px]  text-white shadow-sm  ring-inset hover:bg-gray-10 ">
         Explore
         <ChevronDownIcon  className="-mr-1 h-5 w-5 text-gray-400" aria-hidden="true" />
       </Menu.Button>
@@ -32,52 +32,52 @@ const ExploreDropDown = () => {
           <Menu.Item>
             {({ active }) => (
               <Link
-                to="/category1"
+                to="/Drops"
                 className={classNames(
                   active ? 'bg-[#ffffff1a] text-white' : 'text-white',
                   'block px-4 py-2 text-sm'
                 )}
               >
-                Category 1
+                Pants
               </Link>
             )}
           </Menu.Item>
           <Menu.Item>
             {({ active }) => (
               <Link
-                to="/category2"
+                to="/Drops"
                 className={classNames(
                   active ? 'bg-[#ffffff1a] text-white' : 'text-white',
                   'block px-4 py-2 text-sm'
                 )}
               >
-                Category 2
+                OverSize
               </Link>
             )}
           </Menu.Item>
           <Menu.Item>
             {({ active }) => (
               <Link
-                to="/category3"
+                to="/Drops"
                 className={classNames(
                   active ? 'bg-[#ffffff1a] text-white' : 'text-white',
                   'block px-4 py-2 text-sm'
                 )}
               >
-                Category 3
+                Kicks
               </Link>
             )}
           </Menu.Item>
           <Menu.Item>
             {({ active }) => (
               <Link
-                to="/category4"
+                to="/Drops"
                 className={classNames(
                   active ? 'bg-[#ffffff1a] text-white' : 'text-white',
                   'block px-4 py-2 text-sm'
                 )}
               >
-                Category 4
+                Hoodies
               </Link>
             )}
           </Menu.Item>

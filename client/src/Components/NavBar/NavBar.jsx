@@ -13,7 +13,7 @@ const NavBar = () => {
             to={"/"}
             className="[font-family:'SF_Pro_Display-Semibold',Helvetica] font-normal text-white text-2xl md:text-4xl tracking-[0] leading-[normal] whitespace-nowrap"
           >
-            Logo
+            Urban Vibe
           </Link>
         </div>
 
@@ -67,6 +67,14 @@ const NavBar = () => {
         </div>
         <div className="flex items-center mt-4 md:mt-0 md:ml-4 md:mr-4">
           <DropDownProfile />
+        </div>
+        <div className="flex items-center mt-4 md:mt-0 md:ml-4 md:mr-4">
+          <Link
+            to={"/Statis"}
+            className="[font-family:'SF_Pro_Display-Semibold',Helvetica] font-normal text-white text-base md:text-lg tracking-[0] leading-[normal] whitespace-nowrap"
+          >
+            Stats
+          </Link>
         </div>
       </div>
     </header>

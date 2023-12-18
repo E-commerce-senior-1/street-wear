@@ -36,6 +36,8 @@ const SignIn = () => {
         loginPassword
       );
       console.log(user);
+      localStorage.setItem("user", JSON.stringify(user))
+
     } catch (error) {
       console.log(error.message);
     }
