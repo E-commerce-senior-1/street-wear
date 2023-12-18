@@ -1,10 +1,11 @@
 const express = require('express')
 const router = express.Router()
-const { addfavelist,deletefavlist} = require("../Controller/favList.js");
+const { getfanList,deletefavlist} = require("../Controller/favList.js");
 
 
-router.post("/post", addfavelist)
-router.delete("/delete/:id", deletefavlist)
+
+router.delete("/delete/:id/:idPro", deletefavlist)
+router.get("/getfavList/:id",getfanList)
 
 
 module.exports = router

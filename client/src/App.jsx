@@ -3,17 +3,28 @@ import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import NavBar from './Components/NavBar/NavBar';
 import Footer from './Components/NavBar/Footer';
 import LandingPage from './Components/Home/LandingPage';
-import FavList from './Components/favList/FavList'
-import Products from './Components/products/Products'
-import Profile from './Components/artist/Profile'
-import SignIn from './Components/user/SignIn'
-import SignUp from './Components/user/SignUp'
+
+import Products from './Components/products/Products.jsx';
+import FavList from './Components/favList/FavList.jsx';
+import Profile from './Components/artist/Profile';
+import SignUp from './Components/user/SignUp';
+import SignIn from './Components/user/SignIn';
+import Statis from './Components/statis/Statis.jsx';
+
+// import Products from './Components/products/Products';
+// import FavList from './Components/favList/FavList'
+
+
 
 
 
 import axios from 'axios';
-import Statis from './Components/statis/Statis';
+
+
+
+
  export  const userContext = createContext()
+
 
 const App = () => {
   const [view , setView] = useState(false)
@@ -35,6 +46,7 @@ useEffect(()=> {
   if(localStorage.length) {
     fetchArtistData()
   }
+  
 },[])
 
   return (
@@ -47,6 +59,7 @@ useEffect(()=> {
         {/* <NavBar/> */}
       <Routes>
         <Route path='/' element={<LandingPage/>}/>
+
         <Route
             path="/PeronalCollection"
             element={<FavList likedProducts={likedProducts} />}
@@ -55,6 +68,7 @@ useEffect(()=> {
             path="/Drops"
             element={<Products addToFavorites={addToFavorites} />}
           />
+
         <Route path='/Profile' element={<Profile/>}/>
         <Route path="/SignIn" element={<SignIn />} />
           <Route path="/SignUp" element={<SignUp/>} />
