@@ -67,7 +67,7 @@ const ShoppingCart = () => {
       
       <button
         onClick={toggleCartVisibility}
-        className="fixed right-4 top-4 bg-blue-500 text-white px-4 py-2 rounded-md"
+        className=" right-4 top-4 text-white px-4 py-2 rounded-md"
       >
         Cart
       </button>
