@@ -412,7 +412,7 @@ const Products = ({ addToFavorites }) => {
   const [selectedCategory, setSelectedCategory] = useState(null);
   const [showOptions, setShowOptions] = useState(false);
   const [isCartHovered, setIsCartHovered] = useState(false);
-  const [like, setLike] = useState(false);
+  const [likes, setLikes] = useState(false);
 
   const [favorites, setFavorites] = useState([]);
  
@@ -489,7 +489,7 @@ const Products = ({ addToFavorites }) => {
               </button>
               <button
                 className="text-white text-base font-medium mt-14 max-md:mt-10"
-                onClick={toggleOptions}
+                onClick={toggleCategoriesOptions}
               >
                 Categories
               </button>
@@ -538,7 +538,7 @@ const Products = ({ addToFavorites }) => {
 
               <button
                 className="text-white text-base font-medium mt-14 max-md:mt-10"
-                onClick={Newrelease}
+                onClick={showNewReleases}
               >
                 Newrelease
               </button>

@@ -20,7 +20,7 @@ const FavList = ({ likedProducts }) => {
                 src={product.picture}
                 alt={product.name}
               />
-              <div>
+              <div className="flew*x justify-center">
                 <div className="flex justify-between gap-5 mt-5 px-0.5 items-start">
                   <div className="flex flex-col items-stretch">
                     <div className="text-white text-opacity-50 text-base font-medium whitespace-nowrap">
