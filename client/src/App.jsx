@@ -8,9 +8,13 @@ import Products from './Components/products/Products'
 import Profile from './Components/artist/Profile'
 import SignIn from './Components/user/SignIn'
 import SignUp from './Components/user/SignUp'
+
+
+
 import axios from 'axios';
 import Statis from './Components/statis/Statis';
  export  const userContext = createContext()
+
 const App = () => {
   const [view , setView] = useState(false)
 const [currentUser ,setCurrentUser] = useState(JSON.parse(localStorage.getItem("user")))
@@ -55,7 +59,9 @@ useEffect(()=> {
         <Route path="/SignIn" element={<SignIn />} />
           <Route path="/SignUp" element={<SignUp/>} />
         <Route path='/Aboutus'/>
-        <Route path="/Statis" element={<Statis />} />
+
+        <Route path='/Statis' element={<Statis/>}/>
+
       </Routes>
       {!view ? (
         <Footer />

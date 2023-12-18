@@ -8,7 +8,9 @@ const Statis = () => {
           <button>Top Market Statistics</button>
         </div>
         <div className="text-white text-opacity-50 text-center text-xl font-medium leading-9 max-w-[651px] self-center mt-9 max-md:max-w-full">
+
           The top Brands ranked by volume, floor price and other statistics.
+
         </div>
         <div className="self-center flex w-full max-w-[1242px] items-stretch justify-between gap-5 mt-24 max-md:max-w-full max-md:flex-wrap max-md:mt-10">
           <button className="flex items-center justify-center gap-4 p-4 bg-purple-600 rounded-full w-[250px] h-[50px] text-white text-center text-lg ">
