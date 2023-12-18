@@ -68,8 +68,8 @@ app.use("/api/artist" , artistRoutes)
 
 
 
-
-
+const postsRoutes = require("./route/posts.js")
+app.use("/api/posts" , postsRoutes)
 
 
 
@@ -81,8 +81,10 @@ app.use("/api/artist" , artistRoutes)
 
 //
 // for Aziz
-
-
+const brandRoutes = require("./route/brands.js")
+app.use("/api/Brand" , brandRoutes)
+const questionRoutes = require("./route/question.js")
+app.use("/api/Question" , questionRoutes)
 
 
 

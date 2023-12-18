@@ -1,47 +1,44 @@
 import React from "react";
-import axios from "axios";
+import products from "../products/Products"
 
-export const FavList = ({ iduser, idprod, fetchData }) => {
-  // const [listfavelist, setListfavelist] = useState([]);
+const FavList = ({ likedProducts }) => {
 
-
-};
-const deleteFavList = () => {
-  axios
-    .delete(`http://localhost:3000/api/favlist/delete/${iduser}/${idprod}`)
-    .then((response) => {
-      console.log("Deleted successfully!");
-    })
-    .catch((error) => {
-      console.error("Error deleting article:", error);
-    });
+  if (!likedProducts) {
+    return null; 
+  }
 
   return (
-    <div>
-      <div
-        className={`p-2 rounded-md shadow-md transition-transform transform bg-[#ffffff1a] hover:bg-transparent hover:scale-105 hover:opacity-80`}
-      >
-        <img
-          src=""
-          alt={name}
-          className="w-full h-100 object-cover mb-2 rounded-md"
-        />
-        <div className="text-xs font-medium font-['Poppins'] text-gray-500 mb-1"></div>
-        <div className="flex">
-          <div className="text-sm text-white font-extralight mb-1 mr-20"></div>
-          <div className="text-sm font-bold text-green-600"></div>
-        </div>
+    <div className="text-white text-center text-3xl font-extrabold leading-[81px] tracking-wider max-w-[356px]">
+      PERSONAL COLLECTION
+      <div className="mt-16 max-md:max-w-full max-md:mt-10 max-md:pr-5">
+        <div className="shadow-sm bg-white bg-opacity-10 flex w-full grow flex-col items-stretch mx-auto p-5 rounded-lg max-md:mt-3">
+          {likedProducts.length === 0 && <p>No liked products yet.</p>}
+          {likedProducts.map((product) => (
+            <div key={product.id}>
+              <img
+                className="aspect-[0.89] object-contain object-center w-full overflow-hidden"
+                src={product.picture}
+                alt={product.name}
+              />
+              <div>
+                <div className="flex justify-between gap-5 mt-5 px-0.5 items-start">
+                  <div className="flex flex-col items-stretch">
+                    <div className="text-white text-opacity-50 text-base font-medium whitespace-nowrap">
+                      {product.category}
+                    </div>
+                  </div>
+                </div>
 
-        <div className="flex items-center">
-          <div className="mr-4 " onClick={() => {}}></div>
-          <button
-            onClick={() => Addaricle(idusers, idproducts)}
-            className="mt-2 ml-2 bg-green-500 hover:bg-green-600 text-white px-4 py-1 rounded-md self-center"
-          >
-            Buy Now
-          </button>
+                <div className="text-white text-base font-bold whitespace-nowrap mt-6">
+                  {product.name}
+                </div> 
+              </div>
+            </div>
+          ))}
         </div>
       </div>
     </div>
   );
 };
+
+export default FavList;

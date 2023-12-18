@@ -6,7 +6,7 @@ const Footer = () => {
     
       <div className="flex justify-evenly flex-col md:flex-row">
         <div>
-          <h1 className="mt-5 ml-12 [font-family:'Poppins-Bold',Helvetica] font-bold text-white text-[20px]  tracking-[0] leading-[normal]">Logo</h1>
+          <h1 className="mt-5 ml-12 [font-family:'Poppins-Bold',Helvetica] font-bold text-white text-[20px]  tracking-[0] leading-[normal] text-decoration-line: underline">Urban Vibe</h1>
           <p className="w-[400px] mt-5 md:ml-12 Poppins-Bold [font-family:'Poppins-Medium',Helvetica] font-medium text-[#ffffff80] text-[15px]" >
             Discover the intersection of style and creativity on our curated
             streetwear E-commerce platform. Uniting designers, brands, and
